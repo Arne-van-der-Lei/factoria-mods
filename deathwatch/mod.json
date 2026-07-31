@@ -1,0 +1,1 @@
+{ "id": "deathwatch", "name": "Deathwatch", "version": "0.1.0", "formatV": "0.1.0", "deps": [{ "id": "base", "min": "0.1.0" }], "description": "The Wardens never really slept. Static travels far, evolution runs hot, Nodes crowd the land.", "author": "The Stilled World team" }

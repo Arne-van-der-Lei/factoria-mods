@@ -1,0 +1,1 @@
+{ "id": "sandbox", "name": "Sandbox", "version": "0.1.0", "formatV": "0.1.0", "deps": [{ "id": "base", "min": "0.1.0" }], "description": "Free build: no costs, everything decoded, no Wardens. The Lattice indulges you.", "author": "The Stilled World team" }

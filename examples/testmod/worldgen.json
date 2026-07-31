@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "layers": {
+    "tin-m": { "scale": 44, "octaves": 2, "seedOffset": 7100, "amp": 255 }
+  },
+  "resources": {
+    "tin-ore": { "mask": "tin-m", "paletteCell": 21, "threshold": [[0, 210], [1024, 198]], "sizeCells": [[0, 80], [1024, 600]], "richness": [[0, 400], [1024, 6000]] }
+  }
+}

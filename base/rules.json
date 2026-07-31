@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "rules": [
+    { "id": "ob-00-start", "once": true, "trigger": { "type": "game-start" },
+      "effects": [
+        { "type": "grant-items", "items": { "crank-reclaimer": 1, "slag-forge": 1, "ferrite-bar": 8, "coilwood": 4 } },
+        { "type": "show-objective", "channel": "onboarding", "id": "obj-01" } ] },
+    { "id": "ob-01-cache", "once": true, "trigger": { "type": "ruin-opened", "ruin": "cache-husk" },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-02" } ] },
+    { "id": "ob-02-cinder", "once": true, "trigger": { "type": "item-produced", "item": "cinder", "count": 5, "source": "hand" },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-03" } ] },
+    { "id": "ob-03-forge", "once": true, "trigger": { "type": "item-produced", "item": "slag-forge", "count": 1, "source": "hand" },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-04" } ] },
+    { "id": "ob-04-bars", "once": true, "trigger": { "type": "item-produced", "item": "ferrite-bar", "count": 10 },
+      "effects": [ { "type": "grant-items", "items": { "cog": 2 } }, { "type": "show-objective", "channel": "onboarding", "id": "obj-05" } ] },
+    { "id": "ob-05-reclaimer", "once": true, "trigger": { "type": "entity-built", "entity": "crank-reclaimer" },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-06" } ] },
+    { "id": "ob-06-automate", "once": true, "trigger": { "type": "entity-status", "entity": "crank-reclaimer", "status": "working" },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-07" } ] },
+    { "id": "ob-07-archive", "once": true, "trigger": { "type": "item-produced", "item": "spark-salvage", "count": 10 },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-08" } ] },
+    { "id": "ob-08-decode", "once": true, "trigger": { "type": "tech-researched", "tech": "fabrication-1" },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-09" } ] },
+    { "id": "ob-09-fabricator", "once": true, "trigger": { "type": "entity-built", "entity": "fabricator-1" },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-10" } ] },
+    { "id": "ob-10-fifty", "once": true, "trigger": { "type": "item-produced", "item": "spark-salvage", "count": 50 },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-11" } ] },
+    { "id": "ob-11-voltaics", "once": true, "trigger": { "type": "tech-researched", "tech": "voltaics" },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-12" } ] },
+    { "id": "ob-12-power", "once": true, "trigger": { "type": "entity-status", "entity": "piston-dynamo", "status": "working" },
+      "effects": [ { "type": "show-objective", "channel": "onboarding", "id": "obj-handoff" }, { "type": "alert", "locKey": "alert-tutorial-complete" } ] },
+
+    { "id": "victory", "once": true, "trigger": { "type": "beacon-ignited" },
+      "effects": [ { "type": "victory", "locKey": "victory-text" } ] },
+
+    { "id": "first-node-kill", "once": true, "trigger": { "type": "entity-destroyed", "entity": "warden-node", "byPlayer": true },
+      "effects": [ { "type": "alert", "locKey": "alert-first-node-kill" } ] },
+    { "id": "first-brownout", "once": true, "trigger": { "type": "power-satisfaction-below", "percent": 90, "sustainTicks": 300 },
+      "effects": [ { "type": "alert", "locKey": "alert-brownout" } ] },
+    { "id": "static-reaches-node", "once": true, "trigger": { "type": "pollution-reached-nest" },
+      "effects": [ { "type": "alert", "locKey": "alert-static-node" } ] }
+  ]
+}

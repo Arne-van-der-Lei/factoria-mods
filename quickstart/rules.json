@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "rules": [
+    { "id": "quickstart-grant", "once": true, "trigger": { "type": "game-start" },
+      "effects": [
+        { "type": "grant-items", "items": { "crank-reclaimer": 4, "slag-forge": 4, "rollway": 50, "grabber-crank": 10, "ferrite-bar": 40, "cog": 20, "coilwood": 10 } },
+        { "type": "unlock", "techs": ["fabrication-1", "rollways", "steelworking"] } ] }
+  ]
+}

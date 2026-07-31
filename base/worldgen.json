@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "world": { "size": 2048, "cell": 1, "chunk": 32, "origin": "center" },
+
+  "layers": {
+    "elevation": { "scale": 96, "octaves": 4, "seedOffset": 1000, "amp": 255 },
+    "moisture": { "scale": 160, "octaves": 3, "seedOffset": 2000, "amp": 255 },
+    "basin": { "scale": 224, "octaves": 2, "seedOffset": 3000, "amp": 255 },
+    "ferrite-m": { "scale": 48, "octaves": 2, "seedOffset": 4100, "amp": 255 },
+    "cuprite-m": { "scale": 48, "octaves": 2, "seedOffset": 4200, "amp": 255 },
+    "cinder-m": { "scale": 40, "octaves": 2, "seedOffset": 4300, "amp": 255 },
+    "regolith-m": { "scale": 40, "octaves": 2, "seedOffset": 4400, "amp": 255 },
+    "ichor-m": { "scale": 28, "octaves": 1, "seedOffset": 4500, "amp": 255 },
+    "corium-m": { "scale": 32, "octaves": 1, "seedOffset": 4600, "amp": 255 }
+  },
+
+  "terrain": [
+    { "if": "ge(chebmax(), 1016)", "tile": "border-cliff" },
+    { "if": "ge(chebmax(), 1000)", "tile": "border-haze" },
+    { "if": "and(lt(sample(basin), 60), lt(sample(elevation), 110))", "tile": "water" },
+    { "if": "ge(sample(elevation), 200)", "tile": "plateau-3" },
+    { "if": "ge(sample(elevation), 170)", "tile": "plateau-2" },
+    { "if": "ge(sample(elevation), 140)", "tile": "plateau-1" },
+    { "if": "true", "tile": "land" }
+  ],
+
+  "scatter": [
+    { "entity": "coilwood-tree", "if": "and(landlike(), ge(sample(moisture), 150))", "place": "lt(hash(x, y, 9001), div(sub(sample(moisture), 140), 2))" },
+    { "entity": "rock-deco", "if": "landlike()", "place": "lt(hash(x, y, 9002), 3)" },
+    { "entity": "ruin-husk", "if": "landlike()", "place": "lt(hash(x, y, 9010), 2)" },
+    { "entity": "cache-husk", "if": "landlike()", "place": "lt(hash(x, y, 9011), 1)" },
+    { "entity": "memory-post", "if": "landlike()", "place": "eq(hash(x, y, 9012), 0)", "maxPer": 24, "trail": "beacon-site" }
+  ],
+
+  "resources": {
+    "ferrite-shard": { "mask": "ferrite-m", "paletteCell": 27, "threshold": [[0, 205], [300, 195], [1024, 185]], "sizeCells": [[0, 120], [400, 400], [1024, 1200]], "richness": [[0, 500], [300, 1500], [700, 6000], [1024, 15000]] },
+    "cuprite": { "mask": "cuprite-m", "paletteCell": 25, "threshold": [[0, 205], [300, 195], [1024, 185]], "sizeCells": [[0, 120], [400, 400], [1024, 1200]], "richness": [[0, 500], [300, 1500], [700, 6000], [1024, 15000]] },
+    "cinder": { "mask": "cinder-m", "paletteCell": 8, "threshold": [[0, 200], [1024, 188]], "sizeCells": [[0, 100], [1024, 900]], "richness": [[0, 600], [500, 3000], [1024, 10000]] },
+    "regolith": { "mask": "regolith-m", "paletteCell": 12, "threshold": [[0, 208], [1024, 196]], "sizeCells": [[0, 80], [1024, 600]], "richness": [[0, 400], [1024, 8000]] },
+    "ichor": { "mask": "ichor-m", "paletteCell": 9, "kind": "well", "threshold": [[0, 255], [150, 255], [250, 235], [600, 225], [900, 232], [1024, 240]], "sizeCells": [[0, 0], [250, 3], [600, 8], [1024, 12]], "richness": [[250, 3000], [600, 12000], [1024, 40000]] },
+    "corium": { "mask": "corium-m", "paletteCell": 63, "threshold": [[0, 255], [500, 255], [600, 242], [1024, 232]], "sizeCells": [[600, 80], [1024, 300]], "richness": [[600, 1000], [1024, 8000]] }
+  },
+
+  "start_area": {
+    "radius": 80,
+    "flatten": true,
+    "clearRadius": 12,
+    "spawnDressing": "fallen-high-pylon",
+    "firstCacheDistance": 10,
+    "guarantees": [
+      { "type": "ore-patch", "resource": "ferrite-shard", "minTotal": 40000, "ring": [20, 70] },
+      { "type": "ore-patch", "resource": "cuprite", "minTotal": 30000, "ring": [20, 70] },
+      { "type": "ore-patch", "resource": "cinder", "minTotal": 30000, "ring": [20, 70] },
+      { "type": "ore-patch", "resource": "regolith", "minTotal": 15000, "ring": [20, 70] },
+      { "type": "water-edge", "minShore": 12, "ring": [40, 80] }
+    ],
+    "noSpawnersWithin": 200
+  },
+
+  "spawners": {
+    "entity": "warden-node",
+    "density": [[0, 0], [200, 0], [201, 60], [350, 60], [351, 120], [600, 120], [601, 200], [1024, 200]],
+    "clusterSize": [[200, 1], [350, 2], [600, 3], [1024, 5]]
+  },
+
+  "border": { "wallTile": "border-cliff", "wallFrom": 1016, "hazeFrom": 1000 }
+}

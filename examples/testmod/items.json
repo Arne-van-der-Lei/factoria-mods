@@ -1,0 +1,4 @@
+[
+  { "id": "tin-ore", "category": "resource", "stack": 50, "visual": { "mesh": "base/item_ferrite_shard", "paletteCell": 21, "tint": [200, 210, 220] }, "locKey": "item-tin-ore" },
+  { "id": "tin-bar", "category": "intermediate", "stack": 100, "visual": { "mesh": "base/item_bar", "paletteCell": 21 }, "locKey": "item-tin-bar" }
+]

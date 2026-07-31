@@ -1,0 +1,1 @@
+{ "id": "peaceful", "name": "Peaceful Lattice", "version": "0.1.0", "formatV": "0.1.0", "deps": [{ "id": "base", "min": "0.1.0" }], "description": "The Wardens keep sleeping. No Nodes spawn; Static is inert.", "author": "The Stilled World team" }

@@ -1,0 +1,13 @@
+[
+  {
+    "id": "reclaimer-character",
+    "proto": "character",
+    "inventorySlots": 32,
+    "handMiningTicks": 15,
+    "buildReach": 8,
+    "baseRunSpeed": 1000,
+    "craftQueueSlots": 5,
+    "starterKit": [],
+    "locKey": "entity-reclaimer-character"
+  }
+]

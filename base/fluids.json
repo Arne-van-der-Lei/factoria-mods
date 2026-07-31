@@ -1,0 +1,7 @@
+[
+  { "id": "water",     "color": [60, 124, 138],  "locKey": "fluid-water" },
+  { "id": "ichor",     "color": [38, 36, 31],    "locKey": "fluid-ichor" },
+  { "id": "ichor-gas", "color": [163, 163, 95],  "locKey": "fluid-ichor-gas" },
+  { "id": "vitriol",   "color": [232, 178, 58],  "locKey": "fluid-vitriol" },
+  { "id": "steam",     "color": [228, 228, 222], "locKey": "fluid-steam" }
+]

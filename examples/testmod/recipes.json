@@ -1,0 +1,4 @@
+[
+  { "id": "tin-smelting", "category": "smelting", "ticks": 30, "in": [{ "id": "tin-ore", "n": 1 }], "out": [{ "id": "tin-bar", "n": 1 }] },
+  { "id": "cog", "extends": "base:cog", "ticks": 12 }
+]

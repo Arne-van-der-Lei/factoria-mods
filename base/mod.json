@@ -1,0 +1,9 @@
+{
+  "id": "base",
+  "name": "The Stilled World",
+  "version": "0.1.0",
+  "formatV": "0.1.0",
+  "deps": [{ "id": "core", "min": "0.1.0" }],
+  "description": "The vanilla game: wake the Lattice, weather the Wardens, relight the World-Beacon.",
+  "author": "The Stilled World team"
+}

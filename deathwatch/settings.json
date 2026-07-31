@@ -1,0 +1,6 @@
+{
+  "evolutionPerPollution": 1024,
+  "evolutionPerNodeKill": 12,
+  "evolutionPerIdleTicks": 900,
+  "pollutionDecayPerStep": 0
+}

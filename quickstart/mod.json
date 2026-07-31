@@ -1,0 +1,1 @@
+{ "id": "quickstart", "name": "Quickstart", "version": "0.1.0", "formatV": "0.1.0", "deps": [{ "id": "base", "min": "0.1.0" }], "description": "A generous cache: bigger starter kit and tier-1 decodes pre-read.", "author": "The Stilled World team" }

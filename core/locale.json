@@ -1,0 +1,13 @@
+{
+  "en": {
+    "entity-reclaimer-character": "Reclaimer",
+    "err-missing-prototype": "Unregistered pattern. The Archive has no record of this.",
+    "err-missing-mesh": "Visual record lost. Placeholder issued.",
+    "ui-ok": "Confirm",
+    "ui-cancel": "Cancel",
+    "ui-yes": "Yes",
+    "ui-no": "No",
+    "ui-locked": "Not yet decoded",
+    "ui-insufficient": "Missing materials"
+  }
+}
