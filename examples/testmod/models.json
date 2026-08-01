@@ -1,0 +1,56 @@
+{
+  "//": [
+    "Geometry as data. Every model here is a list of primitives -- no FBX, no",
+    "Blender, nothing binary. The editor bakes these into mesh assets; a mod",
+    "downloaded at runtime gets the identical part list through the identical",
+    "builder, which is why a web mod can ship real models without shipping a",
+    "single byte anyone has to trust.",
+    "",
+    "Origin is ground centre and 1 unit is 1 metre, so y:0 is the floor.",
+    "cell names the palette square -- see ModelSpecBuilder.Cells for the list.",
+    "Row 7 (e_*) is emissive.",
+    "",
+    "Primitives: box, plate, wedge, cylinder, cone, pipe, rock.",
+    "Budget is a triangle target; going over warns, it does not fail."
+  ],
+
+  "testmod_marker": {
+    "budget": 120,
+    "parts": [
+      { "p": "box", "w": 0.7, "h": 0.12, "d": 0.7, "cell": "weathered_stone" },
+      { "p": "cylinder", "r": 0.09, "h": 1.9, "seg": 6, "cell": "gunmetal", "y": 0.12 },
+      { "p": "box", "w": 0.5, "h": 0.34, "d": 0.06, "cell": "hazard_yellow", "y": 1.5 },
+      { "p": "plate", "w": 0.3, "d": 0.3, "cell": "e_hologram", "y": 2.02 }
+    ]
+  },
+
+  "testmod_barrel": {
+    "budget": 200,
+    "parts": [
+      { "p": "cylinder", "r": 0.34, "h": 0.9, "seg": 8, "cell": "rust" },
+      { "p": "cylinder", "r": 0.36, "h": 0.07, "seg": 8, "cell": "cast_iron", "y": 0.24 },
+      { "p": "cylinder", "r": 0.36, "h": 0.07, "seg": 8, "cell": "cast_iron", "y": 0.6 },
+      { "p": "plate", "w": 0.6, "d": 0.6, "cell": "gunmetal", "y": 0.9, "t": 0.05 }
+    ]
+  },
+
+  "testmod_ore_heap": {
+    "budget": 160,
+    "parts": [
+      { "p": "cone", "r": 0.85, "r2": 0.12, "h": 0.55, "seg": 8, "cell": "iron_blue" },
+      { "p": "rock", "r": 0.22, "cell": "slate", "x": 0.55, "z": 0.2, "seed": 3 },
+      { "p": "rock", "r": 0.16, "cell": "granite", "x": -0.5, "z": -0.35, "seed": 11 }
+    ]
+  },
+
+  "testmod_gantry": {
+    "budget": 260,
+    "parts": [
+      { "p": "box", "w": 0.3, "h": 3.2, "d": 0.3, "cell": "hazard_yellow", "x": -2.2 },
+      { "p": "box", "w": 0.3, "h": 3.2, "d": 0.3, "cell": "hazard_yellow", "x": 2.2 },
+      { "p": "box", "w": 5.0, "h": 0.28, "d": 0.28, "cell": "gunmetal", "y": 3.2 },
+      { "p": "wedge", "w": 0.8, "h": 0.6, "d": 0.7, "cell": "cast_iron", "y": 2.55, "inset": 0.3 },
+      { "p": "pipe", "r": 0.09, "len": 4.6, "seg": 6, "cell": "copper_patina", "y": 3.62 }
+    ]
+  }
+}

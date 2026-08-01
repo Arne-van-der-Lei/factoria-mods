@@ -47,17 +47,115 @@ junction = F.join([
 F.export(junction, "town_road_junction", budget=100)
 
 # --- highway: the long-haul route between towns -----------------------------
-# Wider, raised on a bed, with a centre divider. It should read as a different
-# class of thing from a town street even at a glance.
+# A dual carriageway, tiled as three separate pieces: lane, median, lane. That
+# cross-section is what makes a highway read as a different class of thing from
+# a town street at a glance -- one is a line, the other has structure.
 F.reset()
 highway = F.join([
     F.box("hw_bed", 1.0, 1.0, 0.10, cell="basalt", bevel=0.0),
-    cracked_slab("hw_surface", 0.94, 1.0, "rust", seed=7, z=0.10, thickness=0.05),
-    F.box("hw_divider", 0.10, 1.0, 0.07, cell="hazard_yellow", bevel=0.01, z=0.15),
-    F.box("hw_railA", 0.06, 1.0, 0.16, cell="gunmetal", bevel=0.01, x=-0.47, z=0.10),
-    F.box("hw_railB", 0.06, 1.0, 0.16, cell="gunmetal", bevel=0.01, x=0.47, z=0.10),
+    cracked_slab("hw_surface", 0.96, 1.0, "rust", seed=7, z=0.10, thickness=0.05),
+    # Lane marking down the middle of the carriageway, worn to dashes.
+    F.box("hw_mark", 0.07, 0.42, 0.01, cell="pale_silt", bevel=0.0, z=0.15),
 ], "highway")
 F.export(highway, "highway", budget=200)
+
+# The median: a raised kerbed strip with the crash barrier that outlived it.
+F.reset()
+median = F.join([
+    F.box("md_bed", 1.0, 1.0, 0.10, cell="basalt", bevel=0.0),
+    F.box("md_kerb", 0.9, 1.0, 0.16, cell="weathered_stone", bevel=0.02, z=0.10),
+    F.box("md_barrier", 0.08, 1.0, 0.22, cell="gunmetal", bevel=0.01, z=0.26),
+    F.box("md_post", 0.10, 0.10, 0.30, cell="cast_iron", bevel=0.01, y=0.3, z=0.26),
+], "highway_median")
+F.export(median, "highway_median", budget=250)
+
+# Where the median has been driven through: barrier folded flat, weeds in the gap.
+F.reset()
+median_broken = F.join([
+    F.box("mdb_bed", 1.0, 1.0, 0.10, cell="basalt", bevel=0.0),
+    F.box("mdb_kerb", 0.9, 0.44, 0.14, cell="weathered_stone", bevel=0.02, y=-0.28, z=0.10),
+    F.box("mdb_barrier", 0.30, 0.08, 0.06, cell="gunmetal", bevel=0.01, y=0.2, z=0.11),
+    F.rock("mdb_rubble", 0.18, cell="slate", x=0.15, y=0.3, seed=23),
+], "highway_median_broken")
+F.export(median_broken, "highway_median_broken", budget=250)
+
+# --- bridge: the only piece of the old world that crosses water --------------
+# Deck on piers, sitting proud of the waterline. Seeing a bridge from across a
+# lake tells the player there is a route, which is worth more than any signpost.
+F.reset()
+bridge = F.join([
+    F.box("br_deck", 1.0, 1.0, 0.22, cell="weathered_stone", bevel=0.02, z=0.55),
+    cracked_slab("br_surface", 0.92, 1.0, "rust", seed=13, z=0.77, thickness=0.04),
+    F.box("br_paraA", 0.07, 1.0, 0.30, cell="cast_iron", bevel=0.01, x=-0.465, z=0.77),
+    F.box("br_paraB", 0.07, 1.0, 0.30, cell="cast_iron", bevel=0.01, x=0.465, z=0.77),
+    # Pier reaching down into the water. Tapered, because a straight leg reads
+    # as scaffolding and a tapered one reads as load-bearing.
+    F.cone("br_pier", r_bottom=0.34, r_top=0.22, h=0.55, cell="granite", seg=8),
+], "highway_bridge")
+F.export(bridge, "highway_bridge", budget=350)
+
+# A span that came down: deck sheared off, one girder still reaching.
+F.reset()
+bridge_out = F.join([
+    F.cone("bro_pier", r_bottom=0.34, r_top=0.20, h=0.62, cell="granite", seg=8),
+    F.box("bro_stub", 0.8, 0.44, 0.20, cell="weathered_stone", bevel=0.02, y=-0.28, z=0.55),
+    F.box("bro_girder", 0.10, 0.6, 0.09, cell="gunmetal", bevel=0.01, y=0.22, z=0.50),
+    F.box("bro_hangA", 0.06, 0.06, 0.34, cell="cast_iron", bevel=0.0, x=-0.3, y=0.1, z=0.24),
+], "highway_bridge_out")
+F.export(bridge_out, "highway_bridge_out", budget=300)
+
+# --- ramp: how a town street gets onto the carriageway ----------------------
+# A wedge, so the geometry itself explains the grade change. Ramps are the piece
+# that stops the road network reading as two systems drawn by different people.
+F.reset()
+ramp_deck = F.box("rmp_deck", 1.0, 1.0, 0.10, cell="rust", bevel=0.0, z=0.0)
+for v in ramp_deck.data.vertices:
+    if v.co.y > 0:
+        v.co.z += 0.10
+ramp = F.join([
+    ramp_deck,
+    F.box("rmp_kerbA", 0.08, 1.0, 0.12, cell="weathered_stone", bevel=0.01, x=-0.46, z=0.02),
+    F.box("rmp_kerbB", 0.08, 1.0, 0.12, cell="weathered_stone", bevel=0.01, x=0.46, z=0.02),
+], "highway_ramp")
+F.export(ramp, "highway_ramp", budget=200)
+
+# --- rail: what actually moved the tonnage ----------------------------------
+# Freight is the first infrastructure a dead world loses, because it is the only
+# kind worth more as scrap than as track. Intact track is therefore a landmark.
+F.reset()
+rail = F.join([
+    F.box("rl_ballast", 1.0, 1.0, 0.08, cell="slate", bevel=0.0),
+    F.box("rl_sleeperA", 0.86, 0.14, 0.06, cell="bark", bevel=0.01, y=-0.25, z=0.08),
+    F.box("rl_sleeperB", 0.86, 0.14, 0.06, cell="bark", bevel=0.01, y=0.25, z=0.08),
+    F.box("rl_railA", 0.07, 1.0, 0.10, cell="steel_light", bevel=0.01, x=-0.28, z=0.14),
+    F.box("rl_railB", 0.07, 1.0, 0.10, cell="steel_light", bevel=0.01, x=0.28, z=0.14),
+], "rail_track")
+F.export(rail, "rail_track", budget=250)
+
+# Torn up: sleepers left, rails gone to somebody's forge, one length bent aside.
+F.reset()
+rail_broken = F.join([
+    F.box("rlb_ballast", 1.0, 1.0, 0.07, cell="slate", bevel=0.0),
+    F.box("rlb_sleeperA", 0.7, 0.13, 0.05, cell="bark", bevel=0.01, y=-0.22, z=0.07),
+    F.box("rlb_sleeperB", 0.5, 0.13, 0.05, cell="bark", bevel=0.01, x=0.12, y=0.28, z=0.07),
+    F.box("rlb_bent", 0.06, 0.55, 0.09, cell="rust", bevel=0.01, x=-0.34, y=-0.1, z=0.12),
+    F.rock("rlb_spoil", 0.16, cell="granite", x=0.3, y=-0.05, seed=29),
+], "rail_broken")
+F.export(rail_broken, "rail_broken", budget=250)
+
+# A freight wagon left on the line: the single best silhouette rail can offer.
+F.reset()
+wagon = F.join([
+    F.box("wg_frame", 1.6, 4.4, 0.30, cell="cast_iron", bevel=0.03, z=0.55),
+    F.box("wg_body", 1.7, 4.0, 1.30, cell="rust", bevel=0.04, z=0.85),
+    F.box("wg_ribA", 0.06, 4.1, 1.1, cell="gunmetal", bevel=0.0, x=-0.87, z=0.95),
+    F.box("wg_ribB", 0.06, 4.1, 1.1, cell="gunmetal", bevel=0.0, x=0.87, z=0.95),
+    F.cylinder("wg_wheelA", r=0.30, h=0.16, cell="machine_shadow", seg=8, x=-0.72, y=-1.4, z=0.30),
+    F.cylinder("wg_wheelB", r=0.30, h=0.16, cell="machine_shadow", seg=8, x=0.72, y=-1.4, z=0.30),
+    F.cylinder("wg_wheelC", r=0.30, h=0.16, cell="machine_shadow", seg=8, x=-0.72, y=1.4, z=0.30),
+    F.cylinder("wg_wheelD", r=0.30, h=0.16, cell="machine_shadow", seg=8, x=0.72, y=1.4, z=0.30),
+], "rail_wagon")
+F.export(wagon, "rail_wagon", budget=600)
 
 # Highway with a collapsed section: dropped deck, bent rail.
 F.reset()

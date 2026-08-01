@@ -80,5 +80,47 @@
   { "id": "coilwood-tree", "proto": "coilwood", "footprint": [1, 1], "yields": { "coilwood": 4 }, "health": 50, "visual": { "prefab": "base/coilwood_tree" }, "locKey": "entity-coilwood-tree" },
   { "id": "ruin-husk", "proto": "ruin", "kind": "dressing", "visual": { "prefab": "base/ruin_husk" }, "locKey": "entity-ruin-husk" },
   { "id": "cache-husk", "proto": "ruin", "kind": "cache", "loot": [{ "id": "ferrite-shard", "min": 4, "max": 10 }, { "id": "cuprite", "min": 2, "max": 6 }, { "id": "cog", "min": 0, "max": 2 }], "visual": { "prefab": "base/cache_husk" }, "locKey": "entity-cache-husk" },
-  { "id": "memory-post", "proto": "ruin", "kind": "memory", "visual": { "prefab": "base/memory_post" }, "locKey": "entity-memory-post" }
+  { "id": "memory-post", "proto": "ruin", "kind": "memory", "visual": { "prefab": "base/memory_post" }, "locKey": "entity-memory-post" },
+
+
+  { "id": "town-road", "proto": "ruin", "kind": "dressing", "lattice": "road", "visual": { "prefab": "base/town_road" }, "locKey": "entity-town-road" },
+  { "id": "town-road-junction", "proto": "ruin", "kind": "dressing", "lattice": "road-junction", "visual": { "prefab": "base/town_road_junction" }, "locKey": "entity-town-road-junction" },
+  { "id": "town-plaza", "proto": "ruin", "kind": "dressing", "lattice": "plaza", "visual": { "prefab": "base/town_monument" }, "locKey": "entity-town-plaza" },
+
+  { "id": "highway", "proto": "ruin", "kind": "dressing", "lattice": "highway", "visual": { "prefab": "base/highway" }, "locKey": "entity-highway" },
+  { "id": "highway-broken", "proto": "ruin", "kind": "dressing", "lattice": "highway-broken", "visual": { "prefab": "base/highway_broken" }, "locKey": "entity-highway-broken" },
+  { "id": "highway-median", "proto": "ruin", "kind": "dressing", "lattice": "median", "visual": { "prefab": "base/highway_median" }, "locKey": "entity-highway-median" },
+  { "id": "highway-median-broken", "proto": "ruin", "kind": "dressing", "lattice": "median-broken", "visual": { "prefab": "base/highway_median_broken" }, "locKey": "entity-highway-median-broken" },
+  { "id": "highway-bridge", "proto": "ruin", "kind": "dressing", "lattice": "bridge", "visual": { "prefab": "base/highway_bridge" }, "locKey": "entity-highway-bridge" },
+  { "id": "highway-bridge-out", "proto": "ruin", "kind": "dressing", "lattice": "bridge-out", "visual": { "prefab": "base/highway_bridge_out" }, "locKey": "entity-highway-bridge-out" },
+  { "id": "highway-ramp", "proto": "ruin", "kind": "dressing", "lattice": "ramp", "visual": { "prefab": "base/highway_ramp" }, "locKey": "entity-highway-ramp" },
+
+  { "id": "rail-track", "proto": "ruin", "kind": "dressing", "lattice": "rail", "visual": { "prefab": "base/rail_track" }, "locKey": "entity-rail-track" },
+  { "id": "rail-broken", "proto": "ruin", "kind": "dressing", "lattice": "rail-broken", "visual": { "prefab": "base/rail_broken" }, "locKey": "entity-rail-broken" },
+  { "id": "rail-wagon", "proto": "ruin", "kind": "cache", "footprint": [2, 5], "loot": [{ "id": "ferrite-shard", "min": 8, "max": 20 }, { "id": "steel-bar", "min": 0, "max": 3 }, { "id": "cog", "min": 2, "max": 6 }], "visual": { "prefab": "base/rail_wagon" }, "locKey": "entity-rail-wagon" },
+
+  { "id": "town-house-small", "proto": "ruin", "kind": "dressing", "footprint": [3, 3], "visual": { "prefab": "base/town_house_small" }, "locKey": "entity-town-house-small" },
+  { "id": "town-house-mid", "proto": "ruin", "kind": "dressing", "footprint": [5, 4], "visual": { "prefab": "base/town_house_mid" }, "locKey": "entity-town-house-mid" },
+  { "id": "town-block", "proto": "ruin", "kind": "dressing", "footprint": [7, 6], "visual": { "prefab": "base/town_block" }, "locKey": "entity-town-block" },
+  { "id": "town-tower", "proto": "ruin", "kind": "dressing", "footprint": [5, 5], "visual": { "prefab": "base/town_tower" }, "locKey": "entity-town-tower" },
+  { "id": "street-lamp-dead", "proto": "ruin", "kind": "dressing", "visual": { "prefab": "base/street_lamp_dead" }, "locKey": "entity-street-lamp-dead" },
+  { "id": "street-hulk", "proto": "ruin", "kind": "cache", "footprint": [2, 4], "loot": [{ "id": "ferrite-shard", "min": 3, "max": 8 }, { "id": "cog", "min": 1, "max": 4 }], "visual": { "prefab": "base/street_hulk" }, "locKey": "entity-street-hulk" },
+
+  { "id": "yard-silo", "proto": "ruin", "kind": "dressing", "footprint": [4, 4], "visual": { "prefab": "base/yard_silo" }, "locKey": "entity-yard-silo" },
+  { "id": "yard-stack", "proto": "ruin", "kind": "dressing", "footprint": [3, 3], "visual": { "prefab": "base/yard_stack" }, "locKey": "entity-yard-stack" },
+  { "id": "yard-tank", "proto": "ruin", "kind": "dressing", "footprint": [5, 5], "visual": { "prefab": "base/yard_tank" }, "locKey": "entity-yard-tank" },
+  { "id": "yard-warehouse", "proto": "ruin", "kind": "cache", "footprint": [9, 6], "loot": [{ "id": "ferrite-shard", "min": 10, "max": 24 }, { "id": "cog", "min": 2, "max": 8 }, { "id": "strand", "min": 0, "max": 4 }], "visual": { "prefab": "base/yard_warehouse" }, "locKey": "entity-yard-warehouse" },
+  { "id": "yard-hall", "proto": "ruin", "kind": "dressing", "footprint": [7, 5], "visual": { "prefab": "base/yard_hall" }, "locKey": "entity-yard-hall" },
+  { "id": "yard-gantry", "proto": "ruin", "kind": "dressing", "footprint": [8, 2], "visual": { "prefab": "base/yard_gantry" }, "locKey": "entity-yard-gantry" },
+  { "id": "yard-piperack", "proto": "ruin", "kind": "dressing", "footprint": [5, 2], "visual": { "prefab": "base/yard_piperack" }, "locKey": "entity-yard-piperack" },
+  { "id": "yard-conveyor", "proto": "ruin", "kind": "dressing", "footprint": [6, 2], "visual": { "prefab": "base/yard_conveyor" }, "locKey": "entity-yard-conveyor" },
+  { "id": "yard-fence", "proto": "ruin", "kind": "dressing", "lattice": "wall", "visual": { "prefab": "base/yard_fence" }, "locKey": "entity-yard-fence" },
+  { "id": "yard-gate", "proto": "ruin", "kind": "dressing", "footprint": [3, 1], "visual": { "prefab": "base/yard_gate" }, "locKey": "entity-yard-gate" },
+
+  { "id": "garrison-bunker", "proto": "ruin", "kind": "dressing", "footprint": [6, 5], "visual": { "prefab": "base/garrison_bunker" }, "locKey": "entity-garrison-bunker" },
+  { "id": "garrison-tower", "proto": "ruin", "kind": "dressing", "footprint": [3, 3], "visual": { "prefab": "base/garrison_tower" }, "locKey": "entity-garrison-tower" },
+  { "id": "garrison-barricade", "proto": "ruin", "kind": "dressing", "footprint": [2, 1], "visual": { "prefab": "base/garrison_barricade" }, "locKey": "entity-garrison-barricade" },
+  { "id": "garrison-hangar", "proto": "ruin", "kind": "dressing", "footprint": [11, 8], "visual": { "prefab": "base/garrison_hangar" }, "locKey": "entity-garrison-hangar" },
+  { "id": "garrison-mast", "proto": "ruin", "kind": "dressing", "footprint": [2, 2], "visual": { "prefab": "base/garrison_mast" }, "locKey": "entity-garrison-mast" },
+  { "id": "garrison-magazine", "proto": "ruin", "kind": "cache", "footprint": [6, 5], "loot": [{ "id": "bolt-magazine", "min": 2, "max": 6 }, { "id": "steel-bar", "min": 2, "max": 6 }], "visual": { "prefab": "base/garrison_magazine" }, "locKey": "entity-garrison-magazine" }
 ]

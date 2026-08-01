@@ -63,5 +63,44 @@
     "clusterSize": [[200, 1], [350, 2], [600, 3], [1024, 5]]
   },
 
-  "border": { "wallTile": "border-cliff", "wallFrom": 1016, "hazeFrom": 1000 }
+  "border": { "wallTile": "border-cliff", "wallFrom": 1016, "hazeFrom": 1000 },
+
+  "//lattice": [
+    "Everything the old world left standing. All of it is data: the generator",
+    "holds no literals, so a total conversion can put down a world with no",
+    "towns, or nothing but towns, without touching engine code.",
+    "",
+    "towns.divisions is how many blocks a town cuts each highway cell into --",
+    "that is what pins a street grid to the highway running through it, and why",
+    "street spacing is expressed this way rather than in metres.",
+    "streetSurvive is the percentage of streets that are still there; the rest",
+    "are gone entirely, merging their blocks."
+  ],
+  "lattice": {
+    "towns": {
+      "block": 600, "spawnPct": 48,
+      "radiusMin": 55, "radiusMax": 130, "rimWobblePct": 48,
+      "divisionsMin": 6, "divisionsMax": 11,
+      "roadWidth": 3, "buildingMargin": 2,
+      "plazaIntensity": 232,
+      "streetJitter": 6, "streetSurvivePct": 64
+    },
+    "highways": {
+      "spacing": 170, "laneWidth": 3, "medianWidth": 2, "survivePct": 55,
+      "rampReach": 6, "rampPct": 40
+    },
+    "rail": {
+      "spacing": 230, "width": 3, "survivePct": 45, "brokenPct": 38
+    },
+    "compounds": {
+      "block": 380, "spawnPct": 42,
+      "sizeMin": 34, "sizeMax": 76,
+      "militaryPct": 30, "wallWidth": 2, "fillPct": 52,
+      "oreRichness": 9000
+    },
+    "nests": {
+      "block": 44, "wildPct": 6, "townPct": 78, "garrisonPct": 92,
+      "minDistanceFromSpawn": 200
+    }
+  }
 }
