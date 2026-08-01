@@ -1,4 +1,5 @@
 {
+  "_comment_budgets": "PROVISIONAL. The Udon cost benchmark (docs/UDON-COSTS.md) established relative costs but NOT reliable absolute nanoseconds - the harness drifts ~25% between runs. These values stay conservative until measured on a quiet machine and on Quest hardware. Do not tighten them on the strength of editor numbers.",
   "tickRate": 10,
   "upsLevels": [10, 8, 6, 5, 4],
   "upsComfortEntities": 1200,
