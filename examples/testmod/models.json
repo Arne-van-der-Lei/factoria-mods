@@ -15,7 +15,7 @@
   ],
 
   "testmod_marker": {
-    "budget": 120,
+    "budget": 160,
     "parts": [
       { "p": "box", "w": 0.7, "h": 0.12, "d": 0.7, "cell": "weathered_stone" },
       { "p": "cylinder", "r": 0.09, "h": 1.9, "seg": 6, "cell": "gunmetal", "y": 0.12 },

@@ -1,0 +1,194 @@
+{
+  "//": [
+    "Wardens, and the defences raised against them.",
+    "",
+    "Wardens are sleek lens-eyed chrome custodians -- geometric, never organic.",
+    "They are menacing the way a guard dog guarding an empty house is menacing.",
+    "Chrome (galvanized, steel_light) is RESERVED as the Warden faction colour",
+    "and appears on nothing the player builds, except the Breaker's captured jaw.",
+    "Alert-red eyes fade to hologram cyan after the Ignition, so one palette swap",
+    "turns the whole faction friendly at the moment of victory.",
+    "",
+    "One mesh family across all three tiers: Scarab, Lancer and Goliath differ by",
+    "scale and palette row only. Legs and mandibles are separate ANIM_ children so",
+    "the wiggle shader has something to weight.",
+    "",
+    "Defences are angular and low -- 45 degree chamfers, wedge profiles, and the",
+    "barrel as the longest line on the model.",
+    "",
+    "Ported from modelgen/gen_warden.py. Blender was Z-up and this is Y-up."
+  ],
+
+  "warden_scarab": {
+    "budget": 820,
+    "parts": [
+      { "p": "box", "w": 0.62, "h": 0.34, "d": 0.86, "cell": "hide", "y": 0.30, "bevel": 0.02 },
+      { "p": "box", "w": 0.52, "h": 0.20, "d": 0.62, "cell": "galvanized", "y": 0.62, "bevel": 0.02 },
+      { "p": "box", "w": 0.40, "h": 0.26, "d": 0.34, "cell": "galvanized", "y": 0.34, "z": -0.58, "bevel": 0.02 }
+    ],
+    "children": {
+      "ANIM_Leg0": { "at": [-0.30, 0.30, -0.30], "parts": [ { "p": "box", "w": 0.07, "h": 0.34, "d": 0.07, "cell": "chitin_dark", "bevel": 0.01 }, { "p": "box", "w": 0.05, "h": 0.30, "d": 0.05, "cell": "chitin_dark", "x": -0.12, "y": -0.28, "bevel": 0.01 } ] },
+      "ANIM_Leg1": { "at": [-0.30, 0.30, 0], "parts": [ { "p": "box", "w": 0.07, "h": 0.34, "d": 0.07, "cell": "chitin_dark", "bevel": 0.01 }, { "p": "box", "w": 0.05, "h": 0.30, "d": 0.05, "cell": "chitin_dark", "x": -0.12, "y": -0.28, "bevel": 0.01 } ] },
+      "ANIM_Leg2": { "at": [-0.30, 0.30, 0.30], "parts": [ { "p": "box", "w": 0.07, "h": 0.34, "d": 0.07, "cell": "chitin_dark", "bevel": 0.01 }, { "p": "box", "w": 0.05, "h": 0.30, "d": 0.05, "cell": "chitin_dark", "x": -0.12, "y": -0.28, "bevel": 0.01 } ] },
+      "ANIM_Leg3": { "at": [0.30, 0.30, -0.30], "parts": [ { "p": "box", "w": 0.07, "h": 0.34, "d": 0.07, "cell": "chitin_dark", "bevel": 0.01 }, { "p": "box", "w": 0.05, "h": 0.30, "d": 0.05, "cell": "chitin_dark", "x": 0.12, "y": -0.28, "bevel": 0.01 } ] },
+      "ANIM_Leg4": { "at": [0.30, 0.30, 0], "parts": [ { "p": "box", "w": 0.07, "h": 0.34, "d": 0.07, "cell": "chitin_dark", "bevel": 0.01 }, { "p": "box", "w": 0.05, "h": 0.30, "d": 0.05, "cell": "chitin_dark", "x": 0.12, "y": -0.28, "bevel": 0.01 } ] },
+      "ANIM_Leg5": { "at": [0.30, 0.30, 0.30], "parts": [ { "p": "box", "w": 0.07, "h": 0.34, "d": 0.07, "cell": "chitin_dark", "bevel": 0.01 }, { "p": "box", "w": 0.05, "h": 0.30, "d": 0.05, "cell": "chitin_dark", "x": 0.12, "y": -0.28, "bevel": 0.01 } ] },
+      "ANIM_MandibleL": { "at": [-0.13, 0.32, -0.72], "parts": [ { "p": "cone", "r": 0.07, "r2": 0.015, "h": 0.34, "seg": 6, "cell": "fang_bone", "rx": -77, "rz": -14 } ] },
+      "ANIM_MandibleR": { "at": [0.13, 0.32, -0.72], "parts": [ { "p": "cone", "r": 0.07, "r2": 0.015, "h": 0.34, "seg": 6, "cell": "fang_bone", "rx": -77, "rz": 14 } ] },
+      "GLOW_Eyes": { "parts": [ { "p": "box", "w": 0.26, "h": 0.06, "d": 0.03, "cell": "e_alert", "y": 0.42, "z": -0.71, "bevel": 0 } ] }
+    }
+  },
+
+  "warden_lancer": {
+    "//": "Same mesh family, 1.67x scale, darker plate. Read the tier by size.",
+    "budget": 820,
+    "parts": [
+      { "p": "box", "w": 1.033, "h": 0.567, "d": 1.433, "cell": "hide_dark", "y": 0.50, "bevel": 0.033 },
+      { "p": "box", "w": 0.867, "h": 0.333, "d": 1.033, "cell": "galvanized", "y": 1.033, "bevel": 0.033 },
+      { "p": "box", "w": 0.667, "h": 0.433, "d": 0.567, "cell": "galvanized", "y": 0.567, "z": -0.967, "bevel": 0.033 }
+    ],
+    "children": {
+      "ANIM_Leg0": { "at": [-0.50, 0.50, -0.50], "parts": [ { "p": "box", "w": 0.117, "h": 0.567, "d": 0.117, "cell": "chitin_dark", "bevel": 0.017 }, { "p": "box", "w": 0.083, "h": 0.50, "d": 0.083, "cell": "chitin_dark", "x": -0.20, "y": -0.467, "bevel": 0.017 } ] },
+      "ANIM_Leg1": { "at": [-0.50, 0.50, 0], "parts": [ { "p": "box", "w": 0.117, "h": 0.567, "d": 0.117, "cell": "chitin_dark", "bevel": 0.017 }, { "p": "box", "w": 0.083, "h": 0.50, "d": 0.083, "cell": "chitin_dark", "x": -0.20, "y": -0.467, "bevel": 0.017 } ] },
+      "ANIM_Leg2": { "at": [-0.50, 0.50, 0.50], "parts": [ { "p": "box", "w": 0.117, "h": 0.567, "d": 0.117, "cell": "chitin_dark", "bevel": 0.017 }, { "p": "box", "w": 0.083, "h": 0.50, "d": 0.083, "cell": "chitin_dark", "x": -0.20, "y": -0.467, "bevel": 0.017 } ] },
+      "ANIM_Leg3": { "at": [0.50, 0.50, -0.50], "parts": [ { "p": "box", "w": 0.117, "h": 0.567, "d": 0.117, "cell": "chitin_dark", "bevel": 0.017 }, { "p": "box", "w": 0.083, "h": 0.50, "d": 0.083, "cell": "chitin_dark", "x": 0.20, "y": -0.467, "bevel": 0.017 } ] },
+      "ANIM_Leg4": { "at": [0.50, 0.50, 0], "parts": [ { "p": "box", "w": 0.117, "h": 0.567, "d": 0.117, "cell": "chitin_dark", "bevel": 0.017 }, { "p": "box", "w": 0.083, "h": 0.50, "d": 0.083, "cell": "chitin_dark", "x": 0.20, "y": -0.467, "bevel": 0.017 } ] },
+      "ANIM_Leg5": { "at": [0.50, 0.50, 0.50], "parts": [ { "p": "box", "w": 0.117, "h": 0.567, "d": 0.117, "cell": "chitin_dark", "bevel": 0.017 }, { "p": "box", "w": 0.083, "h": 0.50, "d": 0.083, "cell": "chitin_dark", "x": 0.20, "y": -0.467, "bevel": 0.017 } ] },
+      "ANIM_MandibleL": { "at": [-0.217, 0.533, -1.20], "parts": [ { "p": "cone", "r": 0.117, "r2": 0.025, "h": 0.567, "seg": 6, "cell": "fang_bone", "rx": -77, "rz": -14 } ] },
+      "ANIM_MandibleR": { "at": [0.217, 0.533, -1.20], "parts": [ { "p": "cone", "r": 0.117, "r2": 0.025, "h": 0.567, "seg": 6, "cell": "fang_bone", "rx": -77, "rz": 14 } ] },
+      "GLOW_Eyes": { "parts": [ { "p": "box", "w": 0.433, "h": 0.10, "d": 0.03, "cell": "e_alert", "y": 0.70, "z": -1.183, "bevel": 0 } ] }
+    }
+  },
+
+  "warden_goliath": {
+    "//": "Built to put mountains back where they belonged. Nothing personal.",
+    "budget": 820,
+    "parts": [
+      { "p": "box", "w": 1.653, "h": 0.907, "d": 2.293, "cell": "chitin_dark", "y": 0.80, "bevel": 0.053 },
+      { "p": "box", "w": 1.387, "h": 0.533, "d": 1.653, "cell": "galvanized", "y": 1.653, "bevel": 0.053 },
+      { "p": "box", "w": 1.067, "h": 0.693, "d": 0.907, "cell": "galvanized", "y": 0.907, "z": -1.547, "bevel": 0.053 }
+    ],
+    "children": {
+      "ANIM_Leg0": { "at": [-0.80, 0.80, -0.80], "parts": [ { "p": "box", "w": 0.187, "h": 0.907, "d": 0.187, "cell": "chitin_dark", "bevel": 0.027 }, { "p": "box", "w": 0.133, "h": 0.80, "d": 0.133, "cell": "chitin_dark", "x": -0.32, "y": -0.747, "bevel": 0.027 } ] },
+      "ANIM_Leg1": { "at": [-0.80, 0.80, 0], "parts": [ { "p": "box", "w": 0.187, "h": 0.907, "d": 0.187, "cell": "chitin_dark", "bevel": 0.027 }, { "p": "box", "w": 0.133, "h": 0.80, "d": 0.133, "cell": "chitin_dark", "x": -0.32, "y": -0.747, "bevel": 0.027 } ] },
+      "ANIM_Leg2": { "at": [-0.80, 0.80, 0.80], "parts": [ { "p": "box", "w": 0.187, "h": 0.907, "d": 0.187, "cell": "chitin_dark", "bevel": 0.027 }, { "p": "box", "w": 0.133, "h": 0.80, "d": 0.133, "cell": "chitin_dark", "x": -0.32, "y": -0.747, "bevel": 0.027 } ] },
+      "ANIM_Leg3": { "at": [0.80, 0.80, -0.80], "parts": [ { "p": "box", "w": 0.187, "h": 0.907, "d": 0.187, "cell": "chitin_dark", "bevel": 0.027 }, { "p": "box", "w": 0.133, "h": 0.80, "d": 0.133, "cell": "chitin_dark", "x": 0.32, "y": -0.747, "bevel": 0.027 } ] },
+      "ANIM_Leg4": { "at": [0.80, 0.80, 0], "parts": [ { "p": "box", "w": 0.187, "h": 0.907, "d": 0.187, "cell": "chitin_dark", "bevel": 0.027 }, { "p": "box", "w": 0.133, "h": 0.80, "d": 0.133, "cell": "chitin_dark", "x": 0.32, "y": -0.747, "bevel": 0.027 } ] },
+      "ANIM_Leg5": { "at": [0.80, 0.80, 0.80], "parts": [ { "p": "box", "w": 0.187, "h": 0.907, "d": 0.187, "cell": "chitin_dark", "bevel": 0.027 }, { "p": "box", "w": 0.133, "h": 0.80, "d": 0.133, "cell": "chitin_dark", "x": 0.32, "y": -0.747, "bevel": 0.027 } ] },
+      "ANIM_MandibleL": { "at": [-0.347, 0.853, -1.92], "parts": [ { "p": "cone", "r": 0.187, "r2": 0.04, "h": 0.907, "seg": 6, "cell": "fang_bone", "rx": -77, "rz": -14 } ] },
+      "ANIM_MandibleR": { "at": [0.347, 0.853, -1.92], "parts": [ { "p": "cone", "r": 0.187, "r2": 0.04, "h": 0.907, "seg": 6, "cell": "fang_bone", "rx": -77, "rz": 14 } ] },
+      "GLOW_Eyes": { "parts": [ { "p": "box", "w": 0.693, "h": 0.16, "d": 0.03, "cell": "e_alert", "y": 1.12, "z": -1.893, "bevel": 0 } ] }
+    }
+  },
+
+  "warden_node": {
+    "//": "Custodial architecture, not a hive. Geometric, built, and still on duty.",
+    "budget": 3000,
+    "parts": [
+      { "p": "box", "w": 4.9, "h": 0.28, "d": 4.9, "cell": "basalt", "bevel": 0.04 },
+      { "p": "box", "w": 3.2, "h": 1.5, "d": 3.2, "cell": "spawner_flesh", "y": 0.28, "bevel": 0.06 },
+      { "p": "cone", "r": 1.7, "r2": 0.5, "h": 2.2, "seg": 8, "cell": "chitin_dark", "y": 1.78 },
+      { "p": "box", "w": 0.36, "h": 1.9, "d": 1.5, "cell": "hide_dark", "x": 1.344, "y": 0.28, "z": 1.344, "bevel": 0.03, "ry": -45 },
+      { "p": "box", "w": 0.36, "h": 1.9, "d": 1.5, "cell": "hide_dark", "x": -1.344, "y": 0.28, "z": 1.344, "bevel": 0.03, "ry": 45 },
+      { "p": "box", "w": 0.36, "h": 1.9, "d": 1.5, "cell": "hide_dark", "x": -1.344, "y": 0.28, "z": -1.344, "bevel": 0.03, "ry": -45 },
+      { "p": "box", "w": 0.36, "h": 1.9, "d": 1.5, "cell": "hide_dark", "x": 1.344, "y": 0.28, "z": -1.344, "bevel": 0.03, "ry": 45 }
+    ],
+    "children": {
+      "GLOW_Vent0": { "parts": [ { "p": "box", "w": 0.5, "h": 0.10, "d": 0.03, "cell": "e_alert", "y": 0.6, "z": -1.63, "bevel": 0 } ] },
+      "GLOW_Vent1": { "parts": [ { "p": "box", "w": 0.5, "h": 0.10, "d": 0.03, "cell": "e_alert", "y": 0.95, "z": -1.63, "bevel": 0 } ] },
+      "GLOW_Vent2": { "parts": [ { "p": "box", "w": 0.5, "h": 0.10, "d": 0.03, "cell": "e_alert", "y": 1.30, "z": -1.63, "bevel": 0 } ] },
+      "GLOW_Crown": { "parts": [ { "p": "cone", "r": 0.52, "r2": 0.12, "h": 0.30, "seg": 8, "cell": "e_alert", "y": 3.98 } ] }
+    }
+  },
+
+  "sentry": {
+    "//": "It would rather be a streetlamp. The barrel is the longest line on it.",
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 1.85, "h": 0.22, "d": 1.85, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "cone", "r": 0.85, "r2": 0.55, "h": 0.55, "seg": 8, "cell": "steel_mid", "y": 0.22 },
+      { "p": "box", "w": 0.5, "h": 0.05, "d": 0.09, "cell": "hazard_yellow", "x": -0.5, "y": 0.10, "z": -0.88, "bevel": 0 },
+      { "p": "box", "w": 0.5, "h": 0.05, "d": 0.09, "cell": "hazard_yellow", "x": 0, "y": 0.10, "z": -0.88, "bevel": 0 },
+      { "p": "box", "w": 0.5, "h": 0.05, "d": 0.09, "cell": "hazard_yellow", "x": 0.5, "y": 0.10, "z": -0.88, "bevel": 0 }
+    ],
+    "children": {
+      "ANIM_Head": {
+        "at": [0, 0.77, 0],
+        "parts": [
+          { "p": "box", "w": 0.62, "h": 0.40, "d": 0.62, "cell": "gunmetal", "bevel": 0.03 },
+          { "p": "pipe", "r": 0.09, "len": 1.25, "seg": 8, "cell": "galvanized", "y": 0.18, "z": -0.62, "ry": 90 }
+        ]
+      },
+      "GLOW_Sight": { "parts": [ { "p": "plate", "w": 0.14, "d": 0.05, "cell": "e_ember", "y": 1.02, "z": -0.30 } ] }
+    }
+  },
+
+  "beam_sentry": {
+    "//": "No ammo logistics, but it browns out the factory. Defence gets a bill.",
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 1.85, "h": 0.22, "d": 1.85, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "cone", "r": 0.85, "r2": 0.55, "h": 0.55, "seg": 8, "cell": "steel_mid", "y": 0.22 },
+      { "p": "box", "w": 0.5, "h": 0.05, "d": 0.09, "cell": "hazard_yellow", "x": -0.5, "y": 0.10, "z": -0.88, "bevel": 0 },
+      { "p": "box", "w": 0.5, "h": 0.05, "d": 0.09, "cell": "hazard_yellow", "x": 0, "y": 0.10, "z": -0.88, "bevel": 0 },
+      { "p": "box", "w": 0.5, "h": 0.05, "d": 0.09, "cell": "hazard_yellow", "x": 0.5, "y": 0.10, "z": -0.88, "bevel": 0 }
+    ],
+    "children": {
+      "ANIM_Head": {
+        "at": [0, 0.77, 0],
+        "parts": [
+          { "p": "box", "w": 0.62, "h": 0.40, "d": 0.62, "cell": "gunmetal", "bevel": 0.03 },
+          { "p": "pipe", "r": 0.12, "len": 1.25, "seg": 8, "cell": "copper", "y": 0.18, "z": -0.62, "ry": 90 }
+        ]
+      },
+      "GLOW_Sight": { "parts": [ { "p": "plate", "w": 0.14, "d": 0.05, "cell": "e_science_blue", "y": 1.02, "z": -0.30 } ] }
+    }
+  },
+
+  "rampart": {
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 0.96, "h": 1.15, "d": 0.96, "cell": "weathered_stone", "bevel": 0.04 },
+      { "p": "box", "w": 1.02, "h": 0.12, "d": 1.02, "cell": "granite", "y": 1.15, "bevel": 0.02 }
+    ]
+  },
+
+  "rampart_gate": {
+    "//": "Walls are miserable to walk around in VR. This is the mercy.",
+    "budget": 450,
+    "parts": [
+      { "p": "box", "w": 0.20, "h": 1.25, "d": 0.96, "cell": "cast_iron", "x": -0.38, "bevel": 0.03 },
+      { "p": "box", "w": 0.20, "h": 1.25, "d": 0.96, "cell": "cast_iron", "x": 0.38, "bevel": 0.03 },
+      { "p": "box", "w": 0.96, "h": 0.14, "d": 0.96, "cell": "granite", "y": 1.25, "bevel": 0.02 }
+    ],
+    "children": {
+      "ANIM_LeafL": { "at": [-0.18, 0.05, 0], "parts": [ { "p": "box", "w": 0.30, "h": 1.05, "d": 0.10, "cell": "galvanized", "bevel": 0.02 } ] },
+      "ANIM_LeafR": { "at": [0.18, 0.05, 0], "parts": [ { "p": "box", "w": 0.30, "h": 1.05, "d": 0.10, "cell": "galvanized", "bevel": 0.02 } ] },
+      "GLOW_Sill": { "parts": [ { "p": "plate", "w": 0.7, "d": 0.06, "cell": "e_hologram", "y": 0.03 } ] }
+    }
+  },
+
+  "echo_mast": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.8, "h": 0.28, "d": 2.8, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 0.09, "h": 2.6, "d": 0.09, "cell": "gunmetal", "x": -0.45, "y": 0.28, "bevel": 0.01 },
+      { "p": "box", "w": 0.09, "h": 2.6, "d": 0.09, "cell": "gunmetal", "x": 0.45, "y": 0.28, "bevel": 0.01 },
+      { "p": "box", "w": 0.9, "h": 0.09, "d": 0.09, "cell": "gunmetal", "y": 0.605, "bevel": 0 },
+      { "p": "box", "w": 0.9, "h": 0.09, "d": 0.09, "cell": "gunmetal", "y": 1.255, "bevel": 0 },
+      { "p": "box", "w": 0.9, "h": 0.09, "d": 0.09, "cell": "gunmetal", "y": 1.905, "bevel": 0 },
+      { "p": "box", "w": 0.9, "h": 0.09, "d": 0.09, "cell": "gunmetal", "y": 2.555, "bevel": 0 },
+      { "p": "box", "w": 1.0, "h": 0.5, "d": 1.0, "cell": "steel_mid", "y": 2.88, "bevel": 0.03 }
+    ],
+    "children": {
+      "ANIM_Dish": {
+        "at": [0, 3.38, 0],
+        "parts": [
+          { "p": "cone", "r": 1.05, "r2": 0.25, "h": 0.42, "seg": 14, "cell": "galvanized", "rx": -29 },
+          { "p": "cylinder", "r": 0.09, "h": 0.45, "seg": 6, "cell": "copper", "y": 0.42, "rx": -29 }
+        ]
+      },
+      "GLOW_Ping": { "parts": [ { "p": "plate", "w": 0.16, "d": 0.06, "cell": "e_hologram", "y": 3.05, "z": -0.52 } ] }
+    }
+  }
+}

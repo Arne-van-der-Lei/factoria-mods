@@ -1,0 +1,104 @@
+{
+  "//": [
+    "Reclaimers -- squat, wide-stance, with the rotor mass dominating the top",
+    "third. The brief: the machine is a motor wearing a frame, legs splayed like",
+    "a braced rig, one exhaust stack breaking the symmetry. It should read as",
+    "gripping the earth.",
+    "",
+    "ANIM_Rotor is the animated mass on top, and it is also most of the",
+    "silhouette -- which is the point. A machine whose moving part is hidden",
+    "inside reads as switched off.",
+    "",
+    "Ported from modelgen/gen_reclaimer.py."
+  ],
+
+  "crank_reclaimer": {
+    "budget": 1000,
+    "parts": [
+      { "p": "box", "w": 1.64, "h": 0.85, "d": 1.64, "cell": "steel_mid", "y": 0.22, "bevel": 0.035 },
+      { "p": "box", "w": 1.88, "h": 0.18, "d": 1.88, "cell": "cast_iron", "y": 0.06, "bevel": 0.03 },
+      { "p": "cylinder", "r": 0.13, "h": 0.55, "seg": 8, "cell": "rust", "x": 0.55, "y": 1.07, "z": 0.55 },
+      { "p": "box", "w": 0.14, "h": 0.24, "d": 0.14, "cell": "gunmetal", "x": -0.78, "z": -0.78, "bevel": 0.02 },
+      { "p": "box", "w": 0.14, "h": 0.24, "d": 0.14, "cell": "gunmetal", "x": 0.78, "z": -0.78, "bevel": 0.02 },
+      { "p": "box", "w": 0.14, "h": 0.24, "d": 0.14, "cell": "gunmetal", "x": -0.78, "z": 0.78, "bevel": 0.02 },
+      { "p": "box", "w": 0.14, "h": 0.24, "d": 0.14, "cell": "gunmetal", "x": 0.78, "z": 0.78, "bevel": 0.02 },
+      { "p": "box", "w": 0.31, "h": 0.08, "d": 0.31, "cell": "cast_iron", "x": -0.78, "z": -0.78, "bevel": 0.02 },
+      { "p": "box", "w": 0.31, "h": 0.08, "d": 0.31, "cell": "cast_iron", "x": 0.78, "z": -0.78, "bevel": 0.02 },
+      { "p": "box", "w": 0.31, "h": 0.08, "d": 0.31, "cell": "cast_iron", "x": -0.78, "z": 0.78, "bevel": 0.02 },
+      { "p": "box", "w": 0.31, "h": 0.08, "d": 0.31, "cell": "cast_iron", "x": 0.78, "z": 0.78, "bevel": 0.02 }
+    ],
+    "children": {
+      "ANIM_Rotor": {
+        "at": [0, 1.07, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.279, "h": 0.22, "seg": 10, "cell": "gunmetal" },
+          { "p": "cylinder", "r": 0.62, "h": 0.12, "seg": 12, "cell": "copper", "y": 0.18 },
+          { "p": "box", "w": 0.12, "h": 0.16, "d": 0.12, "cell": "hazard_yellow", "x": 0.508, "y": 0.10, "z": 0.508, "bevel": 0.01 },
+          { "p": "box", "w": 0.12, "h": 0.16, "d": 0.12, "cell": "hazard_yellow", "x": -0.508, "y": 0.10, "z": 0.508, "bevel": 0.01 },
+          { "p": "box", "w": 0.12, "h": 0.16, "d": 0.12, "cell": "hazard_yellow", "x": -0.508, "y": 0.10, "z": -0.508, "bevel": 0.01 },
+          { "p": "box", "w": 0.12, "h": 0.16, "d": 0.12, "cell": "hazard_yellow", "x": 0.508, "y": 0.10, "z": -0.508, "bevel": 0.01 }
+        ]
+      },
+      "GLOW_Firebox": { "parts": [ { "p": "plate", "w": 0.34, "d": 0.06, "cell": "e_furnace", "y": 0.30, "z": -0.82 } ] }
+    }
+  },
+
+  "volt_reclaimer": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.46, "h": 1.15, "d": 2.46, "cell": "steel_mid", "y": 0.22, "bevel": 0.035 },
+      { "p": "box", "w": 2.82, "h": 0.18, "d": 2.82, "cell": "cast_iron", "y": 0.06, "bevel": 0.03 },
+      { "p": "cylinder", "r": 0.13, "h": 0.55, "seg": 8, "cell": "rust", "x": 0.825, "y": 1.37, "z": 0.825 },
+      { "p": "box", "w": 0.14, "h": 0.24, "d": 0.14, "cell": "gunmetal", "x": -1.17, "z": -1.17, "bevel": 0.02 },
+      { "p": "box", "w": 0.14, "h": 0.24, "d": 0.14, "cell": "gunmetal", "x": 1.17, "z": -1.17, "bevel": 0.02 },
+      { "p": "box", "w": 0.14, "h": 0.24, "d": 0.14, "cell": "gunmetal", "x": -1.17, "z": 1.17, "bevel": 0.02 },
+      { "p": "box", "w": 0.14, "h": 0.24, "d": 0.14, "cell": "gunmetal", "x": 1.17, "z": 1.17, "bevel": 0.02 },
+      { "p": "box", "w": 0.31, "h": 0.08, "d": 0.31, "cell": "cast_iron", "x": -1.17, "z": -1.17, "bevel": 0.02 },
+      { "p": "box", "w": 0.31, "h": 0.08, "d": 0.31, "cell": "cast_iron", "x": 1.17, "z": -1.17, "bevel": 0.02 },
+      { "p": "box", "w": 0.31, "h": 0.08, "d": 0.31, "cell": "cast_iron", "x": -1.17, "z": 1.17, "bevel": 0.02 },
+      { "p": "box", "w": 0.31, "h": 0.08, "d": 0.31, "cell": "cast_iron", "x": 1.17, "z": 1.17, "bevel": 0.02 }
+    ],
+    "children": {
+      "ANIM_Rotor": {
+        "at": [0, 1.37, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.4275, "h": 0.22, "seg": 10, "cell": "gunmetal" },
+          { "p": "cylinder", "r": 0.95, "h": 0.12, "seg": 12, "cell": "steel_blue", "y": 0.18 },
+          { "p": "box", "w": 0.12, "h": 0.16, "d": 0.12, "cell": "hazard_yellow", "x": 0.779, "y": 0.10, "z": 0.779, "bevel": 0.01 },
+          { "p": "box", "w": 0.12, "h": 0.16, "d": 0.12, "cell": "hazard_yellow", "x": -0.779, "y": 0.10, "z": 0.779, "bevel": 0.01 },
+          { "p": "box", "w": 0.12, "h": 0.16, "d": 0.12, "cell": "hazard_yellow", "x": -0.779, "y": 0.10, "z": -0.779, "bevel": 0.01 },
+          { "p": "box", "w": 0.12, "h": 0.16, "d": 0.12, "cell": "hazard_yellow", "x": 0.779, "y": 0.10, "z": -0.779, "bevel": 0.01 }
+        ]
+      },
+      "GLOW_Status": { "parts": [ { "p": "plate", "w": 0.26, "d": 0.05, "cell": "e_science_blue", "y": 1.25, "z": -1.23 } ] }
+    }
+  },
+
+  "delver": {
+    "//": [
+      "Verticality inverted: the shortest 3x3 in the game, because it bores down.",
+      "The bore light is the same uranium green as the scar cracks it is built on,",
+      "so the pairing teaches itself without a tooltip."
+    ],
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.9, "h": 0.22, "d": 2.9, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 2.1, "h": 0.55, "d": 2.1, "cell": "steel_mid", "y": 0.22, "bevel": 0.04 },
+      { "p": "cylinder", "r": 0.75, "h": 0.30, "seg": 12, "cell": "gunmetal", "y": 0.77 },
+      { "p": "box", "w": 0.16, "h": 0.62, "d": 0.16, "cell": "rust", "x": 1.15, "y": 0.22, "z": 1.15, "bevel": 0.02 },
+      { "p": "box", "w": 0.16, "h": 0.62, "d": 0.16, "cell": "rust", "x": -1.15, "y": 0.22, "z": 1.15, "bevel": 0.02 },
+      { "p": "box", "w": 0.16, "h": 0.62, "d": 0.16, "cell": "rust", "x": -1.15, "y": 0.22, "z": -1.15, "bevel": 0.02 },
+      { "p": "box", "w": 0.16, "h": 0.62, "d": 0.16, "cell": "rust", "x": 1.15, "y": 0.22, "z": -1.15, "bevel": 0.02 }
+    ],
+    "children": {
+      "ANIM_Bore": {
+        "at": [0, 0.62, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.55, "h": 0.42, "seg": 12, "cell": "gunmetal" },
+          { "p": "cone", "r": 0.55, "r2": 0.12, "h": 0.30, "seg": 12, "cell": "cast_iron", "y": -0.30 }
+        ]
+      },
+      "GLOW_Bore": { "parts": [ { "p": "plate", "w": 0.9, "d": 0.9, "cell": "e_uranium", "y": 0.24 } ] }
+    }
+  }
+}

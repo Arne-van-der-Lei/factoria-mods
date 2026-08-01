@@ -1,0 +1,338 @@
+{
+  "//": [
+    "Rollways and Grabbers -- the ground layer. Nothing here rises above 0.5 m,",
+    "so a belt run never blocks the silhouette of the machine it feeds.",
+    "",
+    "BELT_ children carry the scrolling-UV shader, so belt motion is free; the",
+    "items riding on top are instanced separately.",
+    "",
+    "A grabber's ANIM_ children nest: Arm0 -> Arm1 -> Hand. The joint hierarchy",
+    "IS the animation -- rotating Arm0 carries the forearm and hand with it, the",
+    "way a real linkage does. `at` is each joint's local origin.",
+    "",
+    "Ported from modelgen/gen_rollway.py. Blender was Z-up and this is Y-up, so",
+    "what was z there is y here."
+  ],
+
+  "rollway": {
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 0.94, "h": 0.14, "d": 0.94, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": -0.435, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": 0.435, "y": 0.14, "bevel": 0.01 }
+    ],
+    "children": {
+      "BELT_Surface": { "parts": [ { "p": "plate", "w": 0.78, "d": 0.98, "cell": "rust", "y": 0.155 } ] }
+    }
+  },
+
+  "rollway_under": {
+    "budget": 350,
+    "parts": [
+      { "p": "box", "w": 0.94, "h": 0.14, "d": 0.94, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": -0.435, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": 0.435, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.94, "h": 0.34, "d": 0.42, "cell": "machine_shadow", "y": 0.14, "z": 0.28, "bevel": 0.02 },
+      { "p": "box", "w": 0.94, "h": 0.06, "d": 0.10, "cell": "rust", "y": 0.15, "z": -0.42, "bevel": 0.01 }
+    ],
+    "children": {
+      "BELT_Surface": { "parts": [ { "p": "plate", "w": 0.78, "d": 0.55, "cell": "rust", "y": 0.155, "z": -0.2 } ] }
+    }
+  },
+
+  "rollway_splitter": {
+    "budget": 560,
+    "parts": [
+      { "p": "box", "w": 1.94, "h": 0.14, "d": 0.94, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "box", "w": 1.94, "h": 0.26, "d": 0.22, "cell": "gunmetal", "y": 0.14, "z": 0.36, "bevel": 0.02 },
+      { "p": "box", "w": 0.10, "h": 0.20, "d": 0.60, "cell": "rust", "y": 0.14, "bevel": 0.01 }
+    ],
+    "children": {
+      "BELT_SurfaceL": { "parts": [ { "p": "plate", "w": 0.80, "d": 0.90, "cell": "rust", "x": -0.5, "y": 0.155 } ] },
+      "BELT_SurfaceR": { "parts": [ { "p": "plate", "w": 0.80, "d": 0.90, "cell": "rust", "x": 0.5, "y": 0.155 } ] }
+    }
+  },
+
+  "swift_rollway": {
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 0.94, "h": 0.14, "d": 0.94, "cell": "gunmetal", "bevel": 0.02 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": -0.435, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": 0.435, "y": 0.14, "bevel": 0.01 }
+    ],
+    "children": {
+      "BELT_Surface": { "parts": [ { "p": "plate", "w": 0.78, "d": 0.98, "cell": "copper", "y": 0.155 } ] }
+    }
+  },
+
+  "swift_rollway_under": {
+    "budget": 350,
+    "parts": [
+      { "p": "box", "w": 0.94, "h": 0.14, "d": 0.94, "cell": "gunmetal", "bevel": 0.02 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": -0.435, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": 0.435, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.94, "h": 0.34, "d": 0.42, "cell": "machine_shadow", "y": 0.14, "z": 0.28, "bevel": 0.02 },
+      { "p": "box", "w": 0.94, "h": 0.06, "d": 0.10, "cell": "copper", "y": 0.15, "z": -0.42, "bevel": 0.01 }
+    ],
+    "children": {
+      "BELT_Surface": { "parts": [ { "p": "plate", "w": 0.78, "d": 0.55, "cell": "copper", "y": 0.155, "z": -0.2 } ] }
+    }
+  },
+
+  "swift_rollway_splitter": {
+    "budget": 560,
+    "parts": [
+      { "p": "box", "w": 1.94, "h": 0.14, "d": 0.94, "cell": "gunmetal", "bevel": 0.02 },
+      { "p": "box", "w": 1.94, "h": 0.26, "d": 0.22, "cell": "gunmetal", "y": 0.14, "z": 0.36, "bevel": 0.02 },
+      { "p": "box", "w": 0.10, "h": 0.20, "d": 0.60, "cell": "copper", "y": 0.14, "bevel": 0.01 }
+    ],
+    "children": {
+      "BELT_SurfaceL": { "parts": [ { "p": "plate", "w": 0.80, "d": 0.90, "cell": "copper", "x": -0.5, "y": 0.155 } ] },
+      "BELT_SurfaceR": { "parts": [ { "p": "plate", "w": 0.80, "d": 0.90, "cell": "copper", "x": 0.5, "y": 0.155 } ] }
+    }
+  },
+
+  "surge_rollway": {
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 0.94, "h": 0.14, "d": 0.94, "cell": "steel_mid", "bevel": 0.02 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": -0.435, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": 0.435, "y": 0.14, "bevel": 0.01 }
+    ],
+    "children": {
+      "BELT_Surface": { "parts": [ { "p": "plate", "w": 0.78, "d": 0.98, "cell": "brass", "y": 0.155 } ] }
+    }
+  },
+
+  "surge_rollway_under": {
+    "budget": 350,
+    "parts": [
+      { "p": "box", "w": 0.94, "h": 0.14, "d": 0.94, "cell": "steel_mid", "bevel": 0.02 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": -0.435, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 0.94, "cell": "gunmetal", "x": 0.435, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.94, "h": 0.34, "d": 0.42, "cell": "machine_shadow", "y": 0.14, "z": 0.28, "bevel": 0.02 },
+      { "p": "box", "w": 0.94, "h": 0.06, "d": 0.10, "cell": "brass", "y": 0.15, "z": -0.42, "bevel": 0.01 }
+    ],
+    "children": {
+      "BELT_Surface": { "parts": [ { "p": "plate", "w": 0.78, "d": 0.55, "cell": "brass", "y": 0.155, "z": -0.2 } ] }
+    }
+  },
+
+  "surge_rollway_splitter": {
+    "budget": 560,
+    "parts": [
+      { "p": "box", "w": 1.94, "h": 0.14, "d": 0.94, "cell": "steel_mid", "bevel": 0.02 },
+      { "p": "box", "w": 1.94, "h": 0.26, "d": 0.22, "cell": "gunmetal", "y": 0.14, "z": 0.36, "bevel": 0.02 },
+      { "p": "box", "w": 0.10, "h": 0.20, "d": 0.60, "cell": "brass", "y": 0.14, "bevel": 0.01 }
+    ],
+    "children": {
+      "BELT_SurfaceL": { "parts": [ { "p": "plate", "w": 0.80, "d": 0.90, "cell": "brass", "x": -0.5, "y": 0.155 } ] },
+      "BELT_SurfaceR": { "parts": [ { "p": "plate", "w": 0.80, "d": 0.90, "cell": "brass", "x": 0.5, "y": 0.155 } ] }
+    }
+  },
+
+  "grabber_crank": {
+    "budget": 560,
+    "parts": [
+      { "p": "box", "w": 0.86, "h": 0.12, "d": 0.86, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "cylinder", "r": 0.16, "h": 0.34, "seg": 10, "cell": "gunmetal", "y": 0.12 },
+      { "p": "box", "w": 0.10, "h": 0.04, "d": 0.30, "cell": "rust", "y": 0.13, "z": 0.32, "bevel": 0 }
+    ],
+    "children": {
+      "ANIM_Arm0": {
+        "at": [0, 0.46, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.10, "h": 0.14, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.09, "h": 0.44, "d": 0.09, "cell": "rust", "y": 0.07, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Arm1": {
+        "parent": "ANIM_Arm0", "at": [0, 0.51, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.08, "h": 0.12, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.08, "h": 0.40, "d": 0.08, "cell": "rust", "y": 0.06, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Hand": {
+        "parent": "ANIM_Arm1", "at": [0, 0.46, 0],
+        "parts": [
+          { "p": "box", "w": 0.16, "h": 0.06, "d": 0.10, "cell": "galvanized", "bevel": 0.01 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": -0.06, "y": 0.06, "bevel": 0 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": 0.06, "y": 0.06, "bevel": 0 }
+        ]
+      },
+      "GLOW_Status": { "parts": [ { "p": "plate", "w": 0.10, "d": 0.04, "cell": "e_furnace", "y": 0.14, "z": -0.40 } ] }
+    }
+  },
+
+  "grabber": {
+    "budget": 560,
+    "parts": [
+      { "p": "box", "w": 0.86, "h": 0.12, "d": 0.86, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "cylinder", "r": 0.16, "h": 0.34, "seg": 10, "cell": "gunmetal", "y": 0.12 },
+      { "p": "box", "w": 0.10, "h": 0.04, "d": 0.30, "cell": "copper", "y": 0.13, "z": 0.32, "bevel": 0 }
+    ],
+    "children": {
+      "ANIM_Arm0": {
+        "at": [0, 0.46, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.10, "h": 0.14, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.09, "h": 0.44, "d": 0.09, "cell": "copper", "y": 0.07, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Arm1": {
+        "parent": "ANIM_Arm0", "at": [0, 0.51, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.08, "h": 0.12, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.08, "h": 0.40, "d": 0.08, "cell": "copper", "y": 0.06, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Hand": {
+        "parent": "ANIM_Arm1", "at": [0, 0.46, 0],
+        "parts": [
+          { "p": "box", "w": 0.16, "h": 0.06, "d": 0.10, "cell": "galvanized", "bevel": 0.01 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": -0.06, "y": 0.06, "bevel": 0 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": 0.06, "y": 0.06, "bevel": 0 }
+        ]
+      },
+      "GLOW_Status": { "parts": [ { "p": "plate", "w": 0.10, "d": 0.04, "cell": "e_science_blue", "y": 0.14, "z": -0.40 } ] }
+    }
+  },
+
+  "grabber_long": {
+    "//": "Reach 1.6: the arm is longer, the base is identical. Range you can see.",
+    "budget": 560,
+    "parts": [
+      { "p": "box", "w": 0.86, "h": 0.12, "d": 0.86, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "cylinder", "r": 0.16, "h": 0.34, "seg": 10, "cell": "gunmetal", "y": 0.12 },
+      { "p": "box", "w": 0.10, "h": 0.04, "d": 0.30, "cell": "copper", "y": 0.13, "z": 0.32, "bevel": 0 }
+    ],
+    "children": {
+      "ANIM_Arm0": {
+        "at": [0, 0.46, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.10, "h": 0.14, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.09, "h": 0.704, "d": 0.09, "cell": "copper", "y": 0.07, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Arm1": {
+        "parent": "ANIM_Arm0", "at": [0, 0.774, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.08, "h": 0.12, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.08, "h": 0.64, "d": 0.08, "cell": "copper", "y": 0.06, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Hand": {
+        "parent": "ANIM_Arm1", "at": [0, 0.70, 0],
+        "parts": [
+          { "p": "box", "w": 0.16, "h": 0.06, "d": 0.10, "cell": "galvanized", "bevel": 0.01 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": -0.06, "y": 0.06, "bevel": 0 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": 0.06, "y": 0.06, "bevel": 0 }
+        ]
+      },
+      "GLOW_Status": { "parts": [ { "p": "plate", "w": 0.10, "d": 0.04, "cell": "e_science_blue", "y": 0.14, "z": -0.40 } ] }
+    }
+  },
+
+  "grabber_swift": {
+    "budget": 560,
+    "parts": [
+      { "p": "box", "w": 0.86, "h": 0.12, "d": 0.86, "cell": "gunmetal", "bevel": 0.02 },
+      { "p": "cylinder", "r": 0.16, "h": 0.34, "seg": 10, "cell": "gunmetal", "y": 0.12 },
+      { "p": "box", "w": 0.10, "h": 0.04, "d": 0.30, "cell": "brass", "y": 0.13, "z": 0.32, "bevel": 0 }
+    ],
+    "children": {
+      "ANIM_Arm0": {
+        "at": [0, 0.46, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.10, "h": 0.14, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.09, "h": 0.44, "d": 0.09, "cell": "brass", "y": 0.07, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Arm1": {
+        "parent": "ANIM_Arm0", "at": [0, 0.51, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.08, "h": 0.12, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.08, "h": 0.40, "d": 0.08, "cell": "brass", "y": 0.06, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Hand": {
+        "parent": "ANIM_Arm1", "at": [0, 0.46, 0],
+        "parts": [
+          { "p": "box", "w": 0.16, "h": 0.06, "d": 0.10, "cell": "galvanized", "bevel": 0.01 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": -0.06, "y": 0.06, "bevel": 0 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": 0.06, "y": 0.06, "bevel": 0 }
+        ]
+      },
+      "GLOW_Status": { "parts": [ { "p": "plate", "w": 0.10, "d": 0.04, "cell": "e_science_green", "y": 0.14, "z": -0.40 } ] }
+    }
+  },
+
+  "grabber_filter": {
+    "budget": 560,
+    "parts": [
+      { "p": "box", "w": 0.86, "h": 0.12, "d": 0.86, "cell": "gunmetal", "bevel": 0.02 },
+      { "p": "cylinder", "r": 0.16, "h": 0.34, "seg": 10, "cell": "gunmetal", "y": 0.12 },
+      { "p": "box", "w": 0.10, "h": 0.04, "d": 0.30, "cell": "copper_patina", "y": 0.13, "z": 0.32, "bevel": 0 }
+    ],
+    "children": {
+      "ANIM_Arm0": {
+        "at": [0, 0.46, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.10, "h": 0.14, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.09, "h": 0.44, "d": 0.09, "cell": "copper_patina", "y": 0.07, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Arm1": {
+        "parent": "ANIM_Arm0", "at": [0, 0.51, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.08, "h": 0.12, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.08, "h": 0.40, "d": 0.08, "cell": "copper_patina", "y": 0.06, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Hand": {
+        "parent": "ANIM_Arm1", "at": [0, 0.46, 0],
+        "parts": [
+          { "p": "box", "w": 0.16, "h": 0.06, "d": 0.10, "cell": "galvanized", "bevel": 0.01 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": -0.06, "y": 0.06, "bevel": 0 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": 0.06, "y": 0.06, "bevel": 0 }
+        ]
+      },
+      "GLOW_Status": { "parts": [ { "p": "plate", "w": 0.10, "d": 0.04, "cell": "e_hologram", "y": 0.14, "z": -0.40 } ] }
+    }
+  },
+
+  "grabber_stack": {
+    "budget": 560,
+    "parts": [
+      { "p": "box", "w": 0.86, "h": 0.12, "d": 0.86, "cell": "gunmetal", "bevel": 0.02 },
+      { "p": "cylinder", "r": 0.16, "h": 0.34, "seg": 10, "cell": "gunmetal", "y": 0.12 },
+      { "p": "box", "w": 0.10, "h": 0.04, "d": 0.30, "cell": "brass", "y": 0.13, "z": 0.32, "bevel": 0 }
+    ],
+    "children": {
+      "ANIM_Arm0": {
+        "at": [0, 0.46, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.10, "h": 0.14, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.09, "h": 0.528, "d": 0.09, "cell": "brass", "y": 0.07, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Arm1": {
+        "parent": "ANIM_Arm0", "at": [0, 0.598, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.08, "h": 0.12, "seg": 8, "cell": "gunmetal" },
+          { "p": "box", "w": 0.08, "h": 0.48, "d": 0.08, "cell": "brass", "y": 0.06, "bevel": 0.01 }
+        ]
+      },
+      "ANIM_Hand": {
+        "parent": "ANIM_Arm1", "at": [0, 0.54, 0],
+        "parts": [
+          { "p": "box", "w": 0.20, "h": 0.06, "d": 0.10, "cell": "galvanized", "bevel": 0.01 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": -0.08, "y": 0.06, "bevel": 0 },
+          { "p": "box", "w": 0.04, "h": 0.13, "d": 0.04, "cell": "galvanized", "x": 0.08, "y": 0.06, "bevel": 0 }
+        ]
+      },
+      "GLOW_Status": { "parts": [ { "p": "plate", "w": 0.10, "d": 0.04, "cell": "e_ember", "y": 0.14, "z": -0.40 } ] }
+    }
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "//": [
+    "Terrain, coilwood and the ruins.",
+    "",
+    "Ruin husks are readable broken versions of live machines -- recognition is",
+    "the storytelling, so each one has to be identifiable as the thing it used to",
+    "be. Their GLOW children stay emissive-black, because a dead socket reads as",
+    "an eye. A bone-coloured salvage tag recurs across the whole set, so one prior",
+    "survivor threads the entire environment together; the Arc Forge shell holds",
+    "the set's single live ember.",
+    "",
+    "Ported from modelgen/gen_terrain.py and gen_beacon.py. Blender was Z-up and",
+    "this is Y-up."
+  ],
+
+  "cliff_wall": {
+    "budget": 350,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 1.5, "d": 0.55, "cell": "granite", "bevel": 0.05 },
+      { "p": "box", "w": 1.0, "h": 0.28, "d": 0.35, "cell": "slate", "z": -0.42, "bevel": 0.04 },
+      { "p": "rock", "r": 0.22, "cell": "basalt", "x": 0.32, "z": -0.5, "seed": 3 }
+    ]
+  },
+
+  "cliff_corner": {
+    "budget": 350,
+    "parts": [
+      { "p": "box", "w": 0.62, "h": 1.5, "d": 1.0, "cell": "granite", "x": -0.19, "bevel": 0.05 },
+      { "p": "box", "w": 1.0, "h": 1.5, "d": 0.62, "cell": "granite", "z": 0.19, "bevel": 0.05 },
+      { "p": "rock", "r": 0.26, "cell": "slate", "x": 0.3, "z": -0.3, "seed": 7 }
+    ]
+  },
+
+  "cliff_ramp": {
+    "//": "A 1.5 m step you can walk. VR comfort is why plateaus are this gentle.",
+    "budget": 450,
+    "parts": [
+      { "p": "box", "w": 2.0, "h": 0.3, "d": 3.0, "cell": "dry_earth", "bevel": 0.03 },
+      { "p": "box", "w": 2.0, "h": 0.6, "d": 1.0, "cell": "dry_earth", "z": 0.5, "bevel": 0.03 },
+      { "p": "box", "w": 2.0, "h": 1.0, "d": 1.0, "cell": "dry_earth", "z": 1.2, "bevel": 0.03 },
+      { "p": "box", "w": 0.25, "h": 1.5, "d": 3.0, "cell": "granite", "x": -1.1, "bevel": 0.04 },
+      { "p": "box", "w": 0.25, "h": 1.5, "d": 3.0, "cell": "granite", "x": 1.1, "bevel": 0.04 }
+    ]
+  },
+
+  "water_edge": {
+    "budget": 100,
+    "parts": [
+      { "p": "plate", "w": 1.0, "d": 1.0, "cell": "deep_water", "y": 0.02 },
+      { "p": "plate", "w": 1.0, "d": 0.22, "cell": "shallow_water", "y": 0.03, "z": -0.39 }
+    ]
+  },
+
+  "scar_tile": {
+    "//": [
+      "What a depleted patch leaves behind. The crack glow is the SAME uranium",
+      "pulse as the Delver's bore light, so 'you can build here' teaches itself",
+      "the first time a player sees the two together."
+    ],
+    "budget": 400,
+    "parts": [
+      { "p": "plate", "w": 3.0, "d": 3.0, "cell": "loam_dark", "y": 0.01 },
+      { "p": "box", "w": 0.5, "h": 0.09, "d": 0.16, "cell": "basalt", "x": -0.9, "y": 0.01, "z": 1.0, "bevel": 0.02 },
+      { "p": "box", "w": 0.5, "h": 0.09, "d": 0.16, "cell": "basalt", "x": -0.3, "y": 0.01, "z": -1.0, "bevel": 0.02 },
+      { "p": "box", "w": 0.5, "h": 0.09, "d": 0.16, "cell": "basalt", "x": 0.3, "y": 0.01, "z": 1.0, "bevel": 0.02 },
+      { "p": "box", "w": 0.5, "h": 0.09, "d": 0.16, "cell": "basalt", "x": 0.9, "y": 0.01, "z": -1.0, "bevel": 0.02 }
+    ],
+    "children": {
+      "GLOW_Crack0": { "parts": [ { "p": "plate", "w": 1.9, "d": 0.07, "cell": "e_uranium", "y": 0.02, "z": -0.6 } ] },
+      "GLOW_Crack1": { "parts": [ { "p": "plate", "w": 1.9, "d": 0.07, "cell": "e_uranium", "y": 0.02, "z": 0 } ] },
+      "GLOW_Crack2": { "parts": [ { "p": "plate", "w": 1.9, "d": 0.07, "cell": "e_uranium", "y": 0.02, "z": 0.6 } ] }
+    }
+  },
+
+  "coilwood_tree": {
+    "//": "Dead cable-growths. Not a tree: a thing that grew where cable was.",
+    "budget": 350,
+    "parts": [
+      { "p": "cylinder", "r": 0.14, "h": 2.4, "seg": 7, "cell": "bark" },
+      { "p": "cone", "r": 0.85, "r2": 0.15, "h": 1.1, "seg": 7, "cell": "pine", "y": 1.6 },
+      { "p": "cone", "r": 0.6, "r2": 0.1, "h": 0.9, "seg": 7, "cell": "forest_shadow", "y": 2.3 },
+      { "p": "cylinder", "r": 0.045, "h": 1.3, "seg": 5, "cell": "copper_patina", "x": 0.16, "y": 0.7 },
+      { "p": "cylinder", "r": 0.04, "h": 1.0, "seg": 5, "cell": "copper_deep", "x": -0.13, "y": 0.9, "z": 0.1 }
+    ]
+  },
+
+  "rock_deco": {
+    "budget": 200,
+    "parts": [
+      { "p": "rock", "r": 0.30, "cell": "granite", "seed": 1 },
+      { "p": "rock", "r": 0.19, "cell": "slate", "x": 0.42, "z": 0.18, "seed": 5 },
+      { "p": "rock", "r": 0.13, "cell": "weathered_stone", "x": -0.3, "z": 0.3, "seed": 9 }
+    ]
+  },
+
+  "ruin_fallen_pylon": {
+    "//": "The spawn landmark. You wake up under it, which is the whole point.",
+    "budget": 900,
+    "parts": [
+      { "p": "box", "w": 1.8, "h": 0.22, "d": 1.8, "cell": "basalt", "y": -0.1, "bevel": 0.03 },
+      { "p": "box", "w": 0.10, "h": 6.0, "d": 0.10, "cell": "rust", "x": -0.65, "bevel": 0.01, "rz": 77, "ry": 23 },
+      { "p": "box", "w": 0.10, "h": 6.0, "d": 0.10, "cell": "rust", "x": 0.65, "bevel": 0.01, "rz": 77, "ry": 23 },
+      { "p": "box", "w": 1.3, "h": 0.10, "d": 0.10, "cell": "rust", "y": 0.6, "bevel": 0, "rz": 77 },
+      { "p": "box", "w": 1.3, "h": 0.10, "d": 0.10, "cell": "rust", "x": 1.2, "y": 1.1, "bevel": 0, "rz": 77 },
+      { "p": "box", "w": 1.3, "h": 0.10, "d": 0.10, "cell": "rust", "x": 2.4, "y": 1.6, "bevel": 0, "rz": 77 },
+      { "p": "plate", "w": 0.18, "d": 0.12, "cell": "fang_bone", "x": 0.6, "y": 0.6 }
+    ]
+  },
+
+  "ruin_forge_shell": {
+    "//": "Holds the set's one live ember. Somebody's fire is still technically lit.",
+    "budget": 900,
+    "parts": [
+      { "p": "box", "w": 2.9, "h": 0.18, "d": 2.9, "cell": "basalt", "bevel": 0.03 },
+      { "p": "box", "w": 2.6, "h": 1.5, "d": 1.4, "cell": "rust", "bevel": 0.05 },
+      { "p": "box", "w": 1.1, "h": 0.9, "d": 1.2, "cell": "cast_iron", "x": 1.5, "y": 0.1, "bevel": 0.04 },
+      { "p": "plate", "w": 0.18, "d": 0.12, "cell": "fang_bone", "x": -0.9, "y": 0.8, "z": -0.72 }
+    ],
+    "children": {
+      "GLOW_LastEmber": {
+        "parts": [ { "p": "box", "w": 0.18, "h": 0.10, "d": 0.03, "cell": "e_furnace", "y": 0.35, "z": -0.71, "bevel": 0 } ]
+      }
+    }
+  },
+
+  "ruin_rollway_spine": {
+    "budget": 400,
+    "parts": [
+      { "p": "box", "w": 0.9, "h": 0.14, "d": 4.0, "cell": "rust", "bevel": 0.02 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 4.0, "cell": "cast_iron", "x": -0.4, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.9, "h": 0.12, "d": 1.1, "cell": "rust", "y": 0.35, "z": 2.6, "bevel": 0.02, "rx": 12 },
+      { "p": "plate", "w": 0.18, "d": 0.12, "cell": "fang_bone", "y": 0.15, "z": -1.2 }
+    ]
+  },
+
+  "ruin_dead_goliath": {
+    "//": "The most eloquent husk in the set. It stopped mid-patrol and stayed.",
+    "budget": 900,
+    "parts": [
+      { "p": "box", "w": 1.65, "h": 0.9, "d": 2.3, "cell": "chitin_dark", "y": 0.45, "bevel": 0.05, "rz": 34 },
+      { "p": "box", "w": 1.05, "h": 0.7, "d": 0.9, "cell": "hide_dark", "y": 0.4, "z": -1.5, "bevel": 0.04, "rz": 34 },
+      { "p": "box", "w": 0.18, "h": 0.8, "d": 0.18, "cell": "chitin_dark", "x": -0.8, "y": 0.9, "z": -0.5, "bevel": 0.02, "rz": 62 },
+      { "p": "box", "w": 0.18, "h": 0.8, "d": 0.18, "cell": "chitin_dark", "x": 0.8, "y": 0.9, "z": -0.5, "bevel": 0.02, "rz": -62 },
+      { "p": "box", "w": 0.18, "h": 0.8, "d": 0.18, "cell": "chitin_dark", "x": -0.8, "y": 0.9, "z": 0.3, "bevel": 0.02, "rz": 62 },
+      { "p": "box", "w": 0.18, "h": 0.8, "d": 0.18, "cell": "chitin_dark", "x": 0.8, "y": 0.9, "z": 0.3, "bevel": 0.02, "rz": -62 },
+      { "p": "box", "w": 0.18, "h": 0.8, "d": 0.18, "cell": "chitin_dark", "x": -0.8, "y": 0.9, "z": 1.1, "bevel": 0.02, "rz": 62 },
+      { "p": "box", "w": 0.18, "h": 0.8, "d": 0.18, "cell": "chitin_dark", "x": 0.8, "y": 0.9, "z": 1.1, "bevel": 0.02, "rz": -62 },
+      { "p": "plate", "w": 0.18, "d": 0.12, "cell": "fang_bone", "x": 0.4, "y": 0.92, "z": 0.3 }
+    ],
+    "children": {
+      "GLOW_DeadEyes": {
+        "parts": [ { "p": "box", "w": 0.3, "h": 0.07, "d": 0.03, "cell": "hazard_black", "y": 0.55, "z": -1.85, "bevel": 0 } ]
+      }
+    }
+  },
+
+  "ruin_bin_stack": {
+    "budget": 450,
+    "parts": [
+      { "p": "box", "w": 0.9, "h": 0.8, "d": 0.9, "cell": "rust", "bevel": 0.03 },
+      { "p": "box", "w": 0.85, "h": 0.75, "d": 0.85, "cell": "cast_iron", "x": 0.5, "y": 0.8, "z": 0.4, "bevel": 0.03, "ry": 14 },
+      { "p": "box", "w": 0.8, "h": 0.7, "d": 0.8, "cell": "rust", "x": -0.6, "z": 0.2, "bevel": 0.03, "ry": -9 },
+      { "p": "plate", "w": 0.18, "d": 0.12, "cell": "fang_bone", "y": 0.5, "z": -0.47 }
+    ]
+  },
+
+  "ruin_dome": {
+    "budget": 550,
+    "parts": [
+      { "p": "cone", "r": 2.1, "r2": 1.3, "h": 1.1, "seg": 10, "cell": "weathered_stone" },
+      { "p": "box", "w": 0.2, "h": 1.2, "d": 2.2, "cell": "basalt", "x": 0.7, "bevel": 0.03 },
+      { "p": "plate", "w": 0.18, "d": 0.12, "cell": "fang_bone", "x": -1.1, "y": 0.7, "z": -0.6 }
+    ]
+  },
+
+  "cache_husk": {
+    "//": "The first thing you ever open. Pry the lid, take the scrap, build a life.",
+    "budget": 350,
+    "parts": [
+      { "p": "box", "w": 1.3, "h": 0.10, "d": 1.0, "cell": "basalt", "bevel": 0.02 },
+      { "p": "box", "w": 1.2, "h": 0.62, "d": 0.9, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "plate", "w": 0.18, "d": 0.12, "cell": "fang_bone", "y": 0.34, "z": -0.46 }
+    ],
+    "children": {
+      "ANIM_Lid": {
+        "at": [0, 0.62, -0.43],
+        "parts": [ { "p": "box", "w": 1.16, "h": 0.12, "d": 0.86, "cell": "galvanized", "z": 0.43, "bevel": 0.02 } ]
+      },
+      "GLOW_Seam": { "parts": [ { "p": "plate", "w": 1.05, "d": 0.05, "cell": "e_ember", "y": 0.60 } ] }
+    }
+  },
+
+  "memory_post": {
+    "//": "Dormant until touched. Twenty-four of them across the map, no more.",
+    "budget": 350,
+    "parts": [
+      { "p": "box", "w": 0.5, "h": 0.16, "d": 0.5, "cell": "basalt", "bevel": 0.02 },
+      { "p": "box", "w": 0.28, "h": 2.0, "d": 0.22, "cell": "weathered_stone", "y": 0.16, "bevel": 0.03 },
+      { "p": "box", "w": 0.30, "h": 0.16, "d": 0.24, "cell": "granite", "x": 0.03, "y": 2.02, "bevel": 0.02, "ry": 7 }
+    ],
+    "children": {
+      "GLOW_Glyph": {
+        "parts": [ { "p": "box", "w": 0.20, "h": 0.5, "d": 0.03, "cell": "e_hologram", "y": 1.2, "z": -0.12, "bevel": 0 } ]
+      }
+    }
+  },
+
+  "beacon_frame": {
+    "//": [
+      "The one megastructure. Nothing else on the map may compete in height.",
+      "",
+      "Built in three visible STAGE_ sub-roots the engine enables in order as",
+      "materials arrive, so the silo you are filling visibly becomes a building.",
+      "The memorable detail is deliberate: one terrace step is newer than the",
+      "others and made of different stone. Somebody tried this before you."
+    ],
+    "budget": 8000,
+    "parts": [
+      { "p": "box", "w": 8.8, "h": 0.30, "d": 8.8, "cell": "basalt", "bevel": 0.05 }
+    ],
+    "children": {
+      "STAGE_Foundation": {
+        "parts": [
+          { "p": "box", "w": 3.2, "h": 0.9, "d": 1.5, "cell": "weathered_stone", "x": 3.3, "y": 0.30, "z": 0, "bevel": 0.05 },
+          { "p": "box", "w": 3.2, "h": 0.9, "d": 1.5, "cell": "weathered_stone", "x": 2.333, "y": 0.30, "z": 2.333, "bevel": 0.05, "ry": -45 },
+          { "p": "box", "w": 3.2, "h": 0.9, "d": 1.5, "cell": "weathered_stone", "x": 0, "y": 0.30, "z": 3.3, "bevel": 0.05, "ry": -90 },
+          { "p": "box", "w": 3.2, "h": 0.9, "d": 1.5, "cell": "weathered_stone", "x": -2.333, "y": 0.30, "z": 2.333, "bevel": 0.05, "ry": -135 },
+          { "p": "box", "w": 3.2, "h": 0.9, "d": 1.5, "cell": "weathered_stone", "x": -3.3, "y": 0.30, "z": 0, "bevel": 0.05 },
+          { "p": "box", "w": 3.2, "h": 0.9, "d": 1.5, "cell": "limestone", "x": -2.333, "y": 0.30, "z": -2.333, "bevel": 0.05, "ry": -45 },
+          { "p": "box", "w": 3.2, "h": 0.9, "d": 1.5, "cell": "weathered_stone", "x": 0, "y": 0.30, "z": -3.3, "bevel": 0.05, "ry": -90 },
+          { "p": "box", "w": 3.2, "h": 0.9, "d": 1.5, "cell": "weathered_stone", "x": 2.333, "y": 0.30, "z": -2.333, "bevel": 0.05, "ry": -135 },
+          { "p": "box", "w": 4.6, "h": 0.25, "d": 4.6, "cell": "machine_shadow", "y": 0.30, "bevel": 0.04 }
+        ]
+      },
+      "STAGE_Structure": {
+        "parts": [
+          { "p": "cylinder", "r": 2.2, "h": 2.6, "seg": 16, "cell": "cast_iron", "y": 0.55 },
+          { "p": "cone", "r": 2.1, "r2": 1.5, "h": 3.2, "seg": 12, "cell": "steel_mid", "y": 3.15 },
+          { "p": "cone", "r": 1.5, "r2": 0.9, "h": 3.4, "seg": 12, "cell": "galvanized", "y": 6.35 },
+          { "p": "cone", "r": 0.9, "r2": 0.35, "h": 2.4, "seg": 10, "cell": "copper", "y": 9.75 },
+          { "p": "box", "w": 0.22, "h": 5.6, "d": 0.22, "cell": "rust", "x": 2.0, "y": 0.55, "bevel": 0.02 },
+          { "p": "box", "w": 0.22, "h": 5.6, "d": 0.22, "cell": "rust", "x": -2.0, "y": 0.55, "bevel": 0.02 },
+          { "p": "box", "w": 0.22, "h": 5.6, "d": 0.22, "cell": "rust", "z": 2.0, "y": 0.55, "bevel": 0.02 },
+          { "p": "box", "w": 0.22, "h": 5.6, "d": 0.22, "cell": "rust", "z": -2.0, "y": 0.55, "bevel": 0.02 }
+        ]
+      },
+      "ANIM_Gantry": {
+        "//": "Leaning, caught mid-retraction. A vertical gantry reads as finished.",
+        "at": [3.4, 0.55, 0],
+        "parts": [
+          { "p": "box", "w": 0.14, "h": 9.5, "d": 0.14, "cell": "gunmetal", "x": -0.65, "bevel": 0.01, "rz": 6 },
+          { "p": "box", "w": 0.14, "h": 9.5, "d": 0.14, "cell": "gunmetal", "x": 0.65, "bevel": 0.01, "rz": 6 },
+          { "p": "box", "w": 1.3, "h": 0.14, "d": 0.14, "cell": "gunmetal", "y": 1.2, "bevel": 0 },
+          { "p": "box", "w": 1.3, "h": 0.14, "d": 0.14, "cell": "gunmetal", "y": 3.6, "bevel": 0 },
+          { "p": "box", "w": 1.3, "h": 0.14, "d": 0.14, "cell": "gunmetal", "y": 6.0, "bevel": 0 },
+          { "p": "box", "w": 1.3, "h": 0.14, "d": 0.14, "cell": "gunmetal", "y": 8.4, "bevel": 0 },
+          { "p": "box", "w": 2.6, "h": 0.35, "d": 0.5, "cell": "gunmetal", "x": 1.3, "y": 8.6, "bevel": 0.03 }
+        ]
+      },
+      "ANIM_DoorL": {
+        "at": [0, 0.62, -2.4],
+        "parts": [
+          { "p": "box", "w": 4.0, "h": 0.30, "d": 2.1, "cell": "galvanized", "bevel": 0.04 },
+          { "p": "box", "w": 4.0, "h": 0.14, "d": 0.22, "cell": "hazard_yellow", "y": 0.30, "bevel": 0.02 }
+        ]
+      },
+      "ANIM_DoorR": {
+        "at": [0, 0.62, 2.4],
+        "parts": [
+          { "p": "box", "w": 4.0, "h": 0.30, "d": 2.1, "cell": "galvanized", "bevel": 0.04 },
+          { "p": "box", "w": 4.0, "h": 0.14, "d": 0.22, "cell": "hazard_yellow", "y": 0.30, "bevel": 0.02 }
+        ]
+      },
+      "GLOW_Ring": { "parts": [ { "p": "plate", "w": 5.2, "d": 5.2, "cell": "e_hologram", "y": 0.58 } ] },
+      "GLOW_Crown": { "parts": [ { "p": "plate", "w": 0.8, "d": 0.8, "cell": "e_lamp", "y": 12.16 } ] },
+      "GLOW_BeamColumn": {
+        "//": "The column of dawn light. Dark until Ignition; the shader does the rest.",
+        "parts": [ { "p": "box", "w": 1.6, "h": 40.0, "d": 1.6, "cell": "e_lamp", "y": 0.6, "bevel": 0 } ]
+      }
+    }
+  }
+}

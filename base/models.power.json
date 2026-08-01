@@ -1,0 +1,203 @@
+{
+  "//": [
+    "Power -- verticality. Poles, stacks and chimneys are the skyline of a base:",
+    "these structures taper upward and vent from the top so they read against the",
+    "sky rather than against the ground clutter. Where a machine has a flywheel,",
+    "the flywheel is the read.",
+    "",
+    "Ported from modelgen/gen_power.py. Blender was Z-up and this is Y-up."
+  ],
+
+  "cinderbox": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.0, "h": 0.14, "d": 3.0, "cell": "basalt", "bevel": 0.03 },
+      { "p": "box", "w": 1.85, "h": 1.25, "d": 2.85, "cell": "cast_iron", "bevel": 0.045 },
+      { "p": "cylinder", "r": 0.55, "h": 1.9, "seg": 14, "cell": "rust", "y": 1.25 },
+      { "p": "cylinder", "r": 0.22, "h": 0.9, "seg": 8, "cell": "gunmetal", "y": 1.25, "z": -1.0 },
+      { "p": "pipe", "r": 0.14, "len": 0.7, "seg": 8, "cell": "copper_patina", "x": 1.0, "y": 0.45, "z": 1.1 }
+    ],
+    "children": {
+      "GLOW_Firebox": {
+        "parts": [ { "p": "box", "w": 0.72, "h": 0.5, "d": 0.03, "cell": "e_furnace", "y": 0.42, "z": -1.44, "bevel": 0 } ]
+      }
+    }
+  },
+
+  "piston_dynamo": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 1.9, "h": 0.55, "d": 3.9, "cell": "cast_iron", "bevel": 0.04 },
+      { "p": "box", "w": 1.5, "h": 0.95, "d": 2.6, "cell": "steel_mid", "y": 0.55, "bevel": 0.045 },
+      { "p": "pipe", "r": 0.11, "len": 1.6, "seg": 8, "cell": "galvanized", "y": 1.05, "z": -0.2, "ry": 90 },
+      { "p": "box", "w": 1.1, "h": 0.7, "d": 0.7, "cell": "gunmetal", "y": 0.55, "z": -1.55, "bevel": 0.03 }
+    ],
+    "children": {
+      "ANIM_Flywheel": {
+        "at": [0, 1.05, 1.45],
+        "parts": [
+          { "p": "cylinder", "r": 0.72, "h": 0.14, "seg": 16, "cell": "copper", "rz": 90 },
+          { "p": "box", "w": 0.06, "h": 1.368, "d": 0.07, "cell": "gunmetal", "x": 0.07, "bevel": 0 },
+          { "p": "box", "w": 0.06, "h": 0.07, "d": 1.368, "cell": "gunmetal", "x": 0.07, "bevel": 0 }
+        ]
+      },
+      "GLOW_Gauge": { "parts": [ { "p": "plate", "w": 0.22, "d": 0.08, "cell": "e_ember", "x": 0.78, "y": 1.2, "z": 0.4 } ] }
+    }
+  },
+
+  "vane_dynamo": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 1.9, "h": 0.55, "d": 3.9, "cell": "cast_iron", "bevel": 0.04 },
+      { "p": "box", "w": 1.5, "h": 0.95, "d": 2.6, "cell": "galvanized", "y": 0.55, "bevel": 0.045 },
+      { "p": "pipe", "r": 0.11, "len": 1.6, "seg": 8, "cell": "galvanized", "y": 1.05, "z": -0.2, "ry": 90 },
+      { "p": "box", "w": 1.1, "h": 0.7, "d": 0.7, "cell": "gunmetal", "y": 0.55, "z": -1.55, "bevel": 0.03 }
+    ],
+    "children": {
+      "ANIM_Flywheel": {
+        "at": [0, 1.05, 1.45],
+        "parts": [
+          { "p": "cylinder", "r": 0.92, "h": 0.14, "seg": 16, "cell": "brass", "rz": 90 },
+          { "p": "box", "w": 0.06, "h": 1.748, "d": 0.07, "cell": "gunmetal", "x": 0.07, "bevel": 0 },
+          { "p": "box", "w": 0.06, "h": 0.07, "d": 1.748, "cell": "gunmetal", "x": 0.07, "bevel": 0 }
+        ]
+      },
+      "GLOW_Gauge": { "parts": [ { "p": "plate", "w": 0.22, "d": 0.08, "cell": "e_science_blue", "x": 0.78, "y": 1.2, "z": 0.4 } ] }
+    }
+  },
+
+  "corium_pile": {
+    "//": [
+      "A 5x5 landmark, deliberately wider than it is tall: massive and calm, not",
+      "threatening. The radial fins leak uranium green, which is the only warm",
+      "colour on it -- the heat is inside and the outside is patient."
+    ],
+    "budget": 3000,
+    "parts": [
+      { "p": "box", "w": 4.9, "h": 0.35, "d": 4.9, "cell": "weathered_stone", "bevel": 0.04 },
+      { "p": "box", "w": 3.9, "h": 2.1, "d": 3.9, "cell": "cast_iron", "y": 0.35, "bevel": 0.06 },
+      { "p": "cylinder", "r": 1.45, "h": 2.5, "seg": 18, "cell": "gunmetal", "y": 0.35 },
+      { "p": "cylinder", "r": 1.65, "h": 0.28, "seg": 18, "cell": "galvanized", "y": 2.85 },
+      { "p": "box", "w": 0.16, "h": 1.7, "d": 1.5, "cell": "steel_mid", "x": 2.1, "y": 0.35, "z": 0, "bevel": 0.02 },
+      { "p": "box", "w": 0.16, "h": 1.7, "d": 1.5, "cell": "steel_mid", "x": 1.485, "y": 0.35, "z": 1.485, "bevel": 0.02, "ry": -45 },
+      { "p": "box", "w": 0.16, "h": 1.7, "d": 1.5, "cell": "steel_mid", "x": 0, "y": 0.35, "z": 2.1, "bevel": 0.02, "ry": -90 },
+      { "p": "box", "w": 0.16, "h": 1.7, "d": 1.5, "cell": "steel_mid", "x": -1.485, "y": 0.35, "z": 1.485, "bevel": 0.02, "ry": -135 },
+      { "p": "box", "w": 0.16, "h": 1.7, "d": 1.5, "cell": "steel_mid", "x": -2.1, "y": 0.35, "z": 0, "bevel": 0.02 },
+      { "p": "box", "w": 0.16, "h": 1.7, "d": 1.5, "cell": "steel_mid", "x": -1.485, "y": 0.35, "z": -1.485, "bevel": 0.02, "ry": -45 },
+      { "p": "box", "w": 0.16, "h": 1.7, "d": 1.5, "cell": "steel_mid", "x": 0, "y": 0.35, "z": -2.1, "bevel": 0.02, "ry": -90 },
+      { "p": "box", "w": 0.16, "h": 1.7, "d": 1.5, "cell": "steel_mid", "x": 1.485, "y": 0.35, "z": -1.485, "bevel": 0.02, "ry": -135 }
+    ],
+    "children": {
+      "GLOW_Core": { "parts": [ { "p": "cylinder", "r": 1.5, "h": 0.06, "seg": 18, "cell": "e_uranium", "y": 2.86 } ] },
+      "GLOW_Seam0": { "parts": [ { "p": "plate", "w": 0.10, "d": 1.4, "cell": "e_uranium", "x": 1.98, "y": 1.3, "z": -1.0 } ] },
+      "GLOW_Seam1": { "parts": [ { "p": "plate", "w": 0.10, "d": 1.4, "cell": "e_uranium", "x": 1.98, "y": 1.3, "z": 1.0 } ] },
+      "GLOW_Seam2": { "parts": [ { "p": "plate", "w": 0.10, "d": 1.4, "cell": "e_uranium", "x": -1.98, "y": 1.3, "z": -1.0 } ] },
+      "GLOW_Seam3": { "parts": [ { "p": "plate", "w": 0.10, "d": 1.4, "cell": "e_uranium", "x": -1.98, "y": 1.3, "z": 1.0 } ] }
+    }
+  },
+
+  "dawncatcher": {
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 2.85, "h": 0.16, "d": 2.85, "cell": "gunmetal", "bevel": 0.03 },
+      { "p": "box", "w": 2.55, "h": 0.09, "d": 2.55, "cell": "steel_blue", "y": 0.16, "bevel": 0.02 },
+      { "p": "box", "w": 0.12, "h": 0.30, "d": 0.12, "cell": "cast_iron", "x": 1.2, "z": 1.2, "bevel": 0.01 },
+      { "p": "box", "w": 0.12, "h": 0.30, "d": 0.12, "cell": "cast_iron", "x": -1.2, "z": 1.2, "bevel": 0.01 },
+      { "p": "box", "w": 0.12, "h": 0.30, "d": 0.12, "cell": "cast_iron", "x": -1.2, "z": -1.2, "bevel": 0.01 },
+      { "p": "box", "w": 0.12, "h": 0.30, "d": 0.12, "cell": "cast_iron", "x": 1.2, "z": -1.2, "bevel": 0.01 }
+    ],
+    "children": {
+      "GLOW_Cells": { "parts": [ { "p": "plate", "w": 2.3, "d": 2.3, "cell": "e_science_blue", "y": 0.26 } ] }
+    }
+  },
+
+  "nightcell": {
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 1.95, "h": 0.14, "d": 1.95, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 1.85, "h": 1.15, "d": 1.85, "cell": "steel_mid", "bevel": 0.04 },
+      { "p": "box", "w": 1.5, "h": 0.14, "d": 1.5, "cell": "gunmetal", "y": 1.15, "bevel": 0.02 }
+    ],
+    "children": {
+      "GLOW_Charge0": { "parts": [ { "p": "box", "w": 0.5, "h": 0.07, "d": 0.03, "cell": "e_lamp", "y": 0.35, "z": -0.93, "bevel": 0 } ] },
+      "GLOW_Charge1": { "parts": [ { "p": "box", "w": 0.5, "h": 0.07, "d": 0.03, "cell": "e_lamp", "y": 0.60, "z": -0.93, "bevel": 0 } ] },
+      "GLOW_Charge2": { "parts": [ { "p": "box", "w": 0.5, "h": 0.07, "d": 0.03, "cell": "e_lamp", "y": 0.85, "z": -0.93, "bevel": 0 } ] }
+    }
+  },
+
+  "stub_pylon": {
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 0.45, "h": 0.14, "d": 0.45, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "box", "w": 0.16, "h": 2.3, "d": 0.16, "cell": "timber", "y": 0.14, "bevel": 0.02 },
+      { "p": "box", "w": 1.0, "h": 0.08, "d": 0.10, "cell": "timber", "y": 2.28, "bevel": 0.01 },
+      { "p": "cylinder", "r": 0.05, "h": 0.12, "seg": 6, "cell": "copper_patina", "x": -0.42, "y": 2.36 },
+      { "p": "cylinder", "r": 0.05, "h": 0.12, "seg": 6, "cell": "copper_patina", "x": 0.42, "y": 2.36 }
+    ]
+  },
+
+  "pylon": {
+    "//": "A lattice mast: two rails plus rungs. Straight lines against the sky.",
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 0.6, "h": 0.16, "d": 0.6, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "box", "w": 0.07, "h": 3.4, "d": 0.07, "cell": "gunmetal", "x": -0.21, "y": 0.16, "bevel": 0.01 },
+      { "p": "box", "w": 0.07, "h": 3.4, "d": 0.07, "cell": "gunmetal", "x": 0.21, "y": 0.16, "bevel": 0.01 },
+      { "p": "box", "w": 0.42, "h": 0.07, "d": 0.07, "cell": "gunmetal", "y": 0.585, "bevel": 0 },
+      { "p": "box", "w": 0.42, "h": 0.07, "d": 0.07, "cell": "gunmetal", "y": 1.435, "bevel": 0 },
+      { "p": "box", "w": 0.42, "h": 0.07, "d": 0.07, "cell": "gunmetal", "y": 2.285, "bevel": 0 },
+      { "p": "box", "w": 0.42, "h": 0.07, "d": 0.07, "cell": "gunmetal", "y": 3.135, "bevel": 0 },
+      { "p": "box", "w": 1.5, "h": 0.09, "d": 0.10, "cell": "gunmetal", "y": 3.5, "bevel": 0.01 },
+      { "p": "cylinder", "r": 0.05, "h": 0.14, "seg": 6, "cell": "copper_patina", "x": -0.65, "y": 3.6 },
+      { "p": "cylinder", "r": 0.05, "h": 0.14, "seg": 6, "cell": "copper_patina", "x": 0, "y": 3.6 },
+      { "p": "cylinder", "r": 0.05, "h": 0.14, "seg": 6, "cell": "copper_patina", "x": 0.65, "y": 3.6 }
+    ]
+  },
+
+  "high_pylon": {
+    "//": "The tallest thing before the Beacon, and the first thing you spawn under.",
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 1.85, "h": 0.20, "d": 1.85, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 0.10, "h": 6.2, "d": 0.10, "cell": "steel_mid", "x": -0.55, "y": 0.20, "bevel": 0.01 },
+      { "p": "box", "w": 0.10, "h": 6.2, "d": 0.10, "cell": "steel_mid", "x": 0.55, "y": 0.20, "bevel": 0.01 },
+      { "p": "box", "w": 1.1, "h": 0.10, "d": 0.10, "cell": "steel_mid", "y": 0.717, "bevel": 0 },
+      { "p": "box", "w": 1.1, "h": 0.10, "d": 0.10, "cell": "steel_mid", "y": 1.750, "bevel": 0 },
+      { "p": "box", "w": 1.1, "h": 0.10, "d": 0.10, "cell": "steel_mid", "y": 2.783, "bevel": 0 },
+      { "p": "box", "w": 1.1, "h": 0.10, "d": 0.10, "cell": "steel_mid", "y": 3.817, "bevel": 0 },
+      { "p": "box", "w": 1.1, "h": 0.10, "d": 0.10, "cell": "steel_mid", "y": 4.850, "bevel": 0 },
+      { "p": "box", "w": 1.1, "h": 0.10, "d": 0.10, "cell": "steel_mid", "y": 5.883, "bevel": 0 },
+      { "p": "box", "w": 2.6, "h": 0.11, "d": 0.12, "cell": "steel_mid", "y": 5.2, "bevel": 0.01 },
+      { "p": "box", "w": 2.6, "h": 0.11, "d": 0.12, "cell": "steel_mid", "y": 6.2, "bevel": 0.01 }
+    ],
+    "children": {
+      "GLOW_Beacon": { "parts": [ { "p": "plate", "w": 0.14, "d": 0.14, "cell": "e_alert", "y": 6.42 } ] }
+    }
+  },
+
+  "gridnode": {
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 1.9, "h": 0.22, "d": 1.9, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 1.4, "h": 1.5, "d": 1.4, "cell": "steel_mid", "y": 0.22, "bevel": 0.04 },
+      { "p": "cylinder", "r": 0.5, "h": 0.9, "seg": 14, "cell": "copper", "y": 1.72 },
+      { "p": "box", "w": 1.1, "h": 0.14, "d": 1.1, "cell": "galvanized", "y": 2.62, "bevel": 0.02 }
+    ],
+    "children": {
+      "GLOW_Arc": { "parts": [ { "p": "plate", "w": 0.9, "d": 0.9, "cell": "e_science_blue", "y": 2.78 } ] }
+    }
+  },
+
+  "lamp": {
+    "//": "The machine that makes night worth having.",
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 0.42, "h": 0.10, "d": 0.42, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "box", "w": 0.10, "h": 1.5, "d": 0.10, "cell": "gunmetal", "y": 0.10, "bevel": 0.01 },
+      { "p": "cone", "r": 0.34, "r2": 0.14, "h": 0.26, "seg": 10, "cell": "galvanized", "y": 1.60 }
+    ],
+    "children": {
+      "GLOW_Bulb": { "parts": [ { "p": "plate", "w": 0.30, "d": 0.30, "cell": "e_lamp", "y": 1.58 } ] }
+    }
+  }
+}

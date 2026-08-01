@@ -1,0 +1,214 @@
+{
+  "//": [
+    "Ichor and synthetics -- ducts, tanks, the Still, the Vat, the Corespinner",
+    "and the Seep Pump -- plus bins, the Rover and the hand props.",
+    "",
+    "Fluid gear stays low and horizontal so it reads as plumbing rather than as",
+    "machinery: the exception is the Still, which is allowed its columns because",
+    "a refinery that does not tower does not look like a refinery.",
+    "",
+    "Ported from modelgen/gen_ichor.py. Blender was Z-up and this is Y-up.",
+    "Blender pipes ran along its Y (depth); here that is the z axis, so a run",
+    "along the tile is rx:90 on a pipe."
+  ],
+
+  "duct": {
+    "budget": 200,
+    "parts": [
+      { "p": "pipe", "r": 0.22, "len": 1.0, "seg": 8, "cell": "cast_iron", "y": 0.24, "ry": 90 },
+      { "p": "cylinder", "r": 0.26, "h": 0.06, "seg": 8, "cell": "gunmetal", "y": 0.24, "z": -0.47, "rx": 90 },
+      { "p": "cylinder", "r": 0.26, "h": 0.06, "seg": 8, "cell": "gunmetal", "y": 0.24, "z": 0.47, "rx": 90 }
+    ]
+  },
+
+  "duct_under": {
+    "budget": 250,
+    "parts": [
+      { "p": "box", "w": 0.9, "h": 0.44, "d": 0.5, "cell": "machine_shadow", "y": 0.02, "bevel": 0.03 },
+      { "p": "pipe", "r": 0.20, "len": 0.5, "seg": 8, "cell": "cast_iron", "y": 0.24, "z": -0.4, "ry": 90 }
+    ]
+  },
+
+  "holding_tank": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.9, "h": 0.16, "d": 2.9, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "cylinder", "r": 1.32, "h": 2.1, "seg": 16, "cell": "steel_mid", "y": 0.16 },
+      { "p": "cylinder", "r": 1.36, "h": 0.12, "seg": 16, "cell": "galvanized", "y": 2.26 },
+      { "p": "pipe", "r": 0.18, "len": 0.6, "seg": 8, "cell": "copper_patina", "x": 1.4, "y": 0.5 }
+    ],
+    "children": {
+      "GLOW_Gauge": {
+        "parts": [ { "p": "box", "w": 0.16, "h": 1.4, "d": 0.03, "cell": "e_science_green", "y": 1.2, "z": -1.33, "bevel": 0 } ]
+      }
+    }
+  },
+
+  "flow_pump": {
+    "budget": 500,
+    "parts": [
+      { "p": "box", "w": 0.95, "h": 0.12, "d": 1.9, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "box", "w": 0.8, "h": 0.7, "d": 1.7, "cell": "gunmetal", "y": 0.1, "bevel": 0.03 },
+      { "p": "pipe", "r": 0.18, "len": 0.5, "seg": 8, "cell": "cast_iron", "y": 0.42, "z": -0.95, "ry": 90 },
+      { "p": "pipe", "r": 0.18, "len": 0.5, "seg": 8, "cell": "cast_iron", "y": 0.42, "z": 0.95, "ry": 90 },
+      { "p": "cylinder", "r": 0.24, "h": 0.4, "seg": 10, "cell": "copper", "y": 0.8 }
+    ]
+  },
+
+  "shore_pump": {
+    "budget": 400,
+    "parts": [
+      { "p": "box", "w": 0.9, "h": 0.3, "d": 1.9, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 0.7, "h": 0.7, "d": 0.7, "cell": "steel_mid", "y": 0.3, "z": 0.5, "bevel": 0.03 },
+      { "p": "pipe", "r": 0.16, "len": 1.1, "seg": 8, "cell": "copper_patina", "y": 0.2, "z": -0.5, "ry": 90 }
+    ]
+  },
+
+  "seep_pump": {
+    "//": "A nodding donkey: the head is the animation and the whole silhouette.",
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.9, "h": 0.22, "d": 2.9, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 0.9, "h": 2.3, "d": 1.6, "cell": "rust", "y": 0.22, "bevel": 0.04 },
+      { "p": "box", "w": 1.1, "h": 0.8, "d": 1.1, "cell": "steel_mid", "x": 0.9, "y": 0.22, "z": -0.8, "bevel": 0.03 }
+    ],
+    "children": {
+      "ANIM_Head": {
+        "at": [0, 2.4, 0],
+        "parts": [
+          { "p": "box", "w": 0.35, "h": 0.30, "d": 2.2, "cell": "gunmetal", "bevel": 0.02 },
+          { "p": "box", "w": 0.5, "h": 0.4, "d": 0.5, "cell": "basalt", "z": 0.9, "bevel": 0.02 }
+        ]
+      }
+    }
+  },
+
+  "ichor_still": {
+    "//": "Allowed its columns: a refinery that does not tower is not a refinery.",
+    "budget": 3000,
+    "parts": [
+      { "p": "box", "w": 4.9, "h": 0.25, "d": 4.9, "cell": "basalt", "bevel": 0.04 },
+      { "p": "box", "w": 3.0, "h": 1.6, "d": 3.0, "cell": "steel_mid", "y": 0.25, "bevel": 0.05 },
+      { "p": "cylinder", "r": 0.55, "h": 3.4, "seg": 12, "cell": "galvanized", "x": -1.0, "y": 1.85, "z": 0.8 },
+      { "p": "cylinder", "r": 0.45, "h": 2.6, "seg": 12, "cell": "rust", "x": 1.1, "y": 1.85, "z": -0.6 },
+      { "p": "pipe", "r": 0.14, "len": 2.2, "seg": 8, "cell": "copper_patina", "y": 3.6 }
+    ],
+    "children": {
+      "GLOW_Window": {
+        "parts": [ { "p": "box", "w": 0.5, "h": 0.9, "d": 0.03, "cell": "e_science_green", "y": 0.9, "z": -1.52, "bevel": 0 } ]
+      }
+    }
+  },
+
+  "synth_vat": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.9, "h": 0.22, "d": 2.9, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "cylinder", "r": 1.05, "h": 1.5, "seg": 14, "cell": "steel_mid", "y": 0.22 },
+      { "p": "cylinder", "r": 1.12, "h": 0.14, "seg": 14, "cell": "galvanized", "y": 1.72 },
+      { "p": "pipe", "r": 0.16, "len": 1.1, "seg": 8, "cell": "copper_patina", "x": 1.2, "y": 1.0 }
+    ],
+    "children": {
+      "GLOW_Vat": { "parts": [ { "p": "plate", "w": 1.6, "d": 1.6, "cell": "e_science_green", "y": 1.88 } ] }
+    }
+  },
+
+  "corespinner": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.9, "h": 0.25, "d": 2.9, "cell": "basalt", "bevel": 0.03 },
+      { "p": "box", "w": 2.1, "h": 1.7, "d": 2.1, "cell": "galvanized", "y": 0.25, "bevel": 0.05 },
+      { "p": "box", "w": 1.6, "h": 0.2, "d": 1.6, "cell": "gunmetal", "y": 1.95, "bevel": 0.03 }
+    ],
+    "children": {
+      "ANIM_Spin": {
+        "at": [0, 2.15, 0],
+        "parts": [ { "p": "cylinder", "r": 0.72, "h": 0.5, "seg": 14, "cell": "steel_light" } ]
+      },
+      "GLOW_Window": {
+        "parts": [ { "p": "box", "w": 0.6, "h": 0.16, "d": 0.03, "cell": "e_uranium", "y": 1.0, "z": -1.06, "bevel": 0 } ]
+      }
+    }
+  },
+
+  "coilwood_bin": {
+    "budget": 200,
+    "parts": [
+      { "p": "box", "w": 0.88, "h": 0.72, "d": 0.88, "cell": "timber", "bevel": 0.03 },
+      { "p": "box", "w": 0.92, "h": 0.10, "d": 0.92, "cell": "bark", "y": 0.72, "bevel": 0.02 }
+    ]
+  },
+
+  "ferrite_bin": {
+    "budget": 200,
+    "parts": [
+      { "p": "box", "w": 0.88, "h": 0.72, "d": 0.88, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 0.92, "h": 0.10, "d": 0.92, "cell": "gunmetal", "y": 0.72, "bevel": 0.02 }
+    ]
+  },
+
+  "steel_bin": {
+    "budget": 200,
+    "parts": [
+      { "p": "box", "w": 0.88, "h": 0.72, "d": 0.88, "cell": "steel_mid", "bevel": 0.03 },
+      { "p": "box", "w": 0.92, "h": 0.10, "d": 0.92, "cell": "galvanized", "y": 0.72, "bevel": 0.02 }
+    ]
+  },
+
+  "rover": {
+    "//": "Cobbled from parts, one headlight. Charm over engineering.",
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 1.75, "h": 0.45, "d": 2.8, "cell": "rust", "y": 0.32, "bevel": 0.04 },
+      { "p": "box", "w": 1.35, "h": 0.55, "d": 1.2, "cell": "steel_mid", "y": 0.77, "z": 0.35, "bevel": 0.04 },
+      { "p": "box", "w": 1.6, "h": 0.22, "d": 0.14, "cell": "gunmetal", "y": 0.55, "z": -1.42, "bevel": 0.02 },
+      { "p": "cylinder", "r": 0.10, "h": 0.5, "seg": 6, "cell": "cast_iron", "x": 0.6, "y": 1.32, "z": 0.9 }
+    ],
+    "children": {
+      "ANIM_Wheel0": {
+        "at": [-0.88, 0.36, 0.95],
+        "parts": [ { "p": "cylinder", "r": 0.36, "h": 0.24, "seg": 10, "cell": "hazard_black", "rz": 90 } ]
+      },
+      "ANIM_Wheel1": {
+        "at": [0.88, 0.36, 0.95],
+        "parts": [ { "p": "cylinder", "r": 0.36, "h": 0.24, "seg": 10, "cell": "hazard_black", "rz": 90 } ]
+      },
+      "ANIM_Wheel2": {
+        "at": [-0.88, 0.36, -0.95],
+        "parts": [ { "p": "cylinder", "r": 0.36, "h": 0.24, "seg": 10, "cell": "hazard_black", "rz": 90 } ]
+      },
+      "ANIM_Wheel3": {
+        "at": [0.88, 0.36, -0.95],
+        "parts": [ { "p": "cylinder", "r": 0.36, "h": 0.24, "seg": 10, "cell": "hazard_black", "rz": 90 } ]
+      },
+      "ANIM_Trunk": {
+        "at": [0, 0.77, -0.55],
+        "parts": [ { "p": "box", "w": 1.3, "h": 0.10, "d": 0.9, "cell": "galvanized", "bevel": 0.02 } ]
+      },
+      "GLOW_Headlight": {
+        "parts": [ { "p": "box", "w": 0.22, "h": 0.14, "d": 0.03, "cell": "e_lamp", "x": -0.4, "y": 0.62, "z": -1.44, "bevel": 0 } ]
+      }
+    }
+  },
+
+  "tablet": {
+    "budget": 120,
+    "parts": [
+      { "p": "box", "w": 0.30, "h": 0.02, "d": 0.22, "cell": "ui_slate", "bevel": 0.004 }
+    ],
+    "children": {
+      "GLOW_Screen": { "parts": [ { "p": "plate", "w": 0.26, "d": 0.18, "cell": "e_hologram", "y": 0.021, "t": 0.004 } ] }
+    }
+  },
+
+  "builder_wand": {
+    "budget": 150,
+    "parts": [
+      { "p": "cylinder", "r": 0.03, "h": 0.16, "seg": 6, "cell": "bark" },
+      { "p": "cylinder", "r": 0.018, "h": 0.34, "seg": 6, "cell": "gunmetal", "y": 0.16 }
+    ],
+    "children": {
+      "GLOW_Tip": { "parts": [ { "p": "plate", "w": 0.05, "d": 0.05, "cell": "e_hologram", "y": 0.50, "t": 0.01 } ] }
+    }
+  }
+}

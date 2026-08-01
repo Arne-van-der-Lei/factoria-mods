@@ -1,0 +1,236 @@
+{
+  "//": [
+    "Item meshes. These are the DrawMeshInstanced belt items, so every triangle",
+    "here is multiplied by several hundred on screen -- this is the one file in",
+    "the project where a triangle genuinely costs something.",
+    "",
+    "Consequently: bevel 0 throughout. A chamfer is 44 triangles against a box's",
+    "12, and at 30 cm across on a moving belt nobody will ever see the edge. The",
+    "art bible's chamfer rule is about things you stand next to.",
+    "",
+    "Items are single meshes with no children on purpose. Emissive faces are just",
+    "parts on palette row 7 -- an instanced draw cannot carry child transforms.",
+    "",
+    "The five Sparks form a silhouette ladder that reads as a tech tree even in",
+    "grayscale: shard cluster -> riveted can -> coil-wrapped -> fluid vial ->",
+    "caged core. If you cannot tell them apart at a glance the ladder has failed.",
+    "",
+    "Ported from modelgen/gen_items.py. Nominal item size is 0.30 m."
+  ],
+
+  "item_ferrite_shard": {
+    "budget": 80,
+    "parts": [
+      { "p": "rock", "r": 0.126, "cell": "iron_blue", "seed": 2 },
+      { "p": "rock", "r": 0.084, "cell": "slate", "x": 0.096, "z": 0.06, "seed": 6 }
+    ]
+  },
+  "item_cuprite": {
+    "budget": 80,
+    "parts": [
+      { "p": "rock", "r": 0.126, "cell": "copper", "seed": 4 },
+      { "p": "rock", "r": 0.078, "cell": "copper_deep", "x": 0.09, "z": -0.06, "seed": 8 }
+    ]
+  },
+  "item_cinder": {
+    "budget": 80,
+    "parts": [
+      { "p": "rock", "r": 0.12, "cell": "coal_black", "seed": 1 },
+      { "p": "rock", "r": 0.078, "cell": "hazard_black", "x": 0.09, "seed": 5 }
+    ]
+  },
+  "item_regolith": {
+    "budget": 80,
+    "parts": [
+      { "p": "rock", "r": 0.12, "cell": "weathered_stone", "seed": 3 },
+      { "p": "rock", "r": 0.072, "cell": "limestone", "x": -0.084, "z": 0.066, "seed": 7 }
+    ]
+  },
+  "item_corium": {
+    "budget": 80,
+    "parts": [
+      { "p": "rock", "r": 0.12, "cell": "olive_scrub", "seed": 11 },
+      { "p": "plate", "w": 0.15, "d": 0.036, "cell": "e_uranium", "y": 0.09 }
+    ]
+  },
+  "item_coilwood": {
+    "budget": 80,
+    "parts": [
+      { "p": "cylinder", "r": 0.066, "h": 0.24, "seg": 6, "cell": "bark" },
+      { "p": "cylinder", "r": 0.015, "h": 0.27, "seg": 4, "cell": "copper_patina", "x": 0.054 }
+    ]
+  },
+
+  "item_bar": {
+    "budget": 80,
+    "parts": [ { "p": "box", "w": 0.255, "h": 0.06, "d": 0.126, "cell": "steel_light", "bevel": 0 } ]
+  },
+  "item_brick": {
+    "budget": 80,
+    "parts": [ { "p": "box", "w": 0.225, "h": 0.084, "d": 0.135, "cell": "clay", "bevel": 0 } ]
+  },
+  "item_plate_large": {
+    "budget": 80,
+    "parts": [
+      { "p": "box", "w": 0.30, "h": 0.03, "d": 0.21, "cell": "galvanized", "bevel": 0 },
+      { "p": "box", "w": 0.06, "h": 0.018, "d": 0.21, "cell": "steel_mid", "y": 0.03, "bevel": 0 }
+    ]
+  },
+
+  "item_cog": {
+    "budget": 90,
+    "parts": [
+      { "p": "cylinder", "r": 0.102, "h": 0.042, "seg": 8, "cell": "cast_iron" },
+      { "p": "box", "w": 0.036, "h": 0.042, "d": 0.036, "cell": "cast_iron", "x": 0.12, "z": 0.12, "bevel": 0 },
+      { "p": "box", "w": 0.036, "h": 0.042, "d": 0.036, "cell": "cast_iron", "x": -0.12, "z": 0.12, "bevel": 0 },
+      { "p": "box", "w": 0.036, "h": 0.042, "d": 0.036, "cell": "cast_iron", "x": -0.12, "z": -0.12, "bevel": 0 },
+      { "p": "box", "w": 0.036, "h": 0.042, "d": 0.036, "cell": "cast_iron", "x": 0.12, "z": -0.12, "bevel": 0 }
+    ]
+  },
+  "item_strand": {
+    "budget": 80,
+    "parts": [
+      { "p": "cylinder", "r": 0.09, "h": 0.048, "seg": 8, "cell": "copper" },
+      { "p": "cylinder", "r": 0.036, "h": 0.06, "seg": 6, "cell": "copper_deep" }
+    ]
+  },
+  "item_board": {
+    "budget": 80,
+    "parts": [
+      { "p": "box", "w": 0.216, "h": 0.018, "d": 0.156, "cell": "copper_patina", "bevel": 0 },
+      { "p": "box", "w": 0.072, "h": 0.024, "d": 0.06, "cell": "machine_shadow", "y": 0.018, "bevel": 0 }
+    ]
+  },
+  "item_drive": {
+    "budget": 80,
+    "parts": [
+      { "p": "box", "w": 0.18, "h": 0.09, "d": 0.132, "cell": "gunmetal", "bevel": 0 },
+      { "p": "cylinder", "r": 0.024, "h": 0.15, "seg": 6, "cell": "galvanized", "x": 0.108, "y": 0.045, "rz": 90 }
+    ]
+  },
+  "item_cell": {
+    "budget": 80,
+    "parts": [
+      { "p": "cylinder", "r": 0.078, "h": 0.186, "seg": 8, "cell": "steel_mid" },
+      { "p": "cylinder", "r": 0.042, "h": 0.03, "seg": 6, "cell": "brass", "y": 0.186 }
+    ]
+  },
+  "item_core": {
+    "budget": 80,
+    "parts": [
+      { "p": "box", "w": 0.165, "h": 0.165, "d": 0.165, "cell": "gunmetal", "bevel": 0 },
+      { "p": "plate", "w": 0.108, "d": 0.108, "cell": "e_hologram", "y": 0.168 }
+    ]
+  },
+  "item_pile": {
+    "budget": 80,
+    "parts": [ { "p": "cone", "r": 0.132, "r2": 0.018, "h": 0.114, "seg": 8, "cell": "hazard_yellow" } ]
+  },
+  "item_barrel": {
+    "budget": 80,
+    "parts": [
+      { "p": "cylinder", "r": 0.09, "h": 0.21, "seg": 8, "cell": "rust" },
+      { "p": "cylinder", "r": 0.096, "h": 0.018, "seg": 8, "cell": "gunmetal", "y": 0.096 }
+    ]
+  },
+  "item_tile": {
+    "budget": 80,
+    "parts": [ { "p": "box", "w": 0.27, "h": 0.03, "d": 0.27, "cell": "limestone", "bevel": 0 } ]
+  },
+  "item_kit": {
+    "budget": 80,
+    "parts": [
+      { "p": "box", "w": 0.186, "h": 0.072, "d": 0.132, "cell": "signal_red", "bevel": 0 },
+      { "p": "box", "w": 0.054, "h": 0.018, "d": 0.018, "cell": "galvanized", "y": 0.036, "z": -0.072, "bevel": 0 }
+    ]
+  },
+  "item_chip": {
+    "budget": 80,
+    "parts": [
+      { "p": "box", "w": 0.15, "h": 0.024, "d": 0.15, "cell": "machine_shadow", "bevel": 0 },
+      { "p": "plate", "w": 0.102, "d": 0.102, "cell": "e_science_blue", "y": 0.027 }
+    ]
+  },
+  "item_stamp": {
+    "budget": 80,
+    "parts": [
+      { "p": "box", "w": 0.186, "h": 0.018, "d": 0.186, "cell": "blueprint_blue", "bevel": 0 },
+      { "p": "plate", "w": 0.132, "d": 0.132, "cell": "e_hologram", "y": 0.021 }
+    ]
+  },
+  "item_beacon_part": {
+    "budget": 80,
+    "parts": [
+      { "p": "cone", "r": 0.102, "r2": 0.036, "h": 0.24, "seg": 8, "cell": "galvanized" },
+      { "p": "plate", "w": 0.15, "d": 0.024, "cell": "e_hologram", "y": 0.12 }
+    ]
+  },
+
+  "item_magazine": {
+    "budget": 80,
+    "parts": [ { "p": "box", "w": 0.09, "h": 0.066, "d": 0.15, "cell": "gunmetal", "bevel": 0 } ]
+  },
+  "item_gun": {
+    "budget": 80,
+    "parts": [
+      { "p": "box", "w": 0.075, "h": 0.066, "d": 0.24, "cell": "gunmetal", "bevel": 0 },
+      { "p": "box", "w": 0.048, "h": 0.084, "d": 0.054, "cell": "bark", "y": -0.06, "z": 0.075, "bevel": 0 }
+    ]
+  },
+  "item_charge": {
+    "budget": 80,
+    "parts": [
+      { "p": "cylinder", "r": 0.078, "h": 0.138, "seg": 8, "cell": "signal_red" },
+      { "p": "cylinder", "r": 0.015, "h": 0.066, "seg": 4, "cell": "hazard_yellow", "y": 0.138 }
+    ]
+  },
+
+  "item_spark_salvage": {
+    "//": "Rung 1: raw shards. It looks like something you found, because it is.",
+    "budget": 90,
+    "parts": [
+      { "p": "rock", "r": 0.09, "cell": "dust_ochre", "seed": 2 },
+      { "p": "rock", "r": 0.066, "cell": "clay", "x": 0.072, "z": 0.048, "seed": 5 },
+      { "p": "plate", "w": 0.066, "d": 0.066, "cell": "e_ember", "y": 0.102 }
+    ]
+  },
+  "item_spark_forge": {
+    "//": "Rung 2: somebody made a container for it.",
+    "budget": 90,
+    "parts": [
+      { "p": "cylinder", "r": 0.078, "h": 0.186, "seg": 8, "cell": "cast_iron" },
+      { "p": "cylinder", "r": 0.084, "h": 0.018, "seg": 8, "cell": "rust", "y": 0.09 },
+      { "p": "plate", "w": 0.084, "d": 0.03, "cell": "e_alert", "y": 0.192 }
+    ]
+  },
+  "item_spark_volt": {
+    "//": "Rung 3: it needs coils now.",
+    "budget": 90,
+    "parts": [
+      { "p": "cylinder", "r": 0.072, "h": 0.192, "seg": 8, "cell": "steel_blue" },
+      { "p": "cylinder", "r": 0.084, "h": 0.024, "seg": 8, "cell": "copper", "y": 0.072 },
+      { "p": "plate", "w": 0.078, "d": 0.078, "cell": "e_science_blue", "y": 0.198 }
+    ]
+  },
+  "item_spark_synth": {
+    "//": "Rung 4: it is a liquid, and liquids need glassware.",
+    "budget": 90,
+    "parts": [
+      { "p": "cylinder", "r": 0.066, "h": 0.21, "seg": 8, "cell": "limestone" },
+      { "p": "cone", "r": 0.066, "r2": 0.03, "h": 0.048, "seg": 6, "cell": "galvanized", "y": 0.21 },
+      { "p": "plate", "w": 0.09, "d": 0.102, "cell": "e_science_green", "y": 0.102 }
+    ]
+  },
+  "item_spark_core": {
+    "//": "Rung 5: it is dangerous, and the cage says so without a warning label.",
+    "budget": 110,
+    "parts": [
+      { "p": "box", "w": 0.015, "h": 0.198, "d": 0.015, "cell": "gunmetal", "x": 0.072, "z": 0.072, "bevel": 0 },
+      { "p": "box", "w": 0.015, "h": 0.198, "d": 0.015, "cell": "gunmetal", "x": -0.072, "z": 0.072, "bevel": 0 },
+      { "p": "box", "w": 0.015, "h": 0.198, "d": 0.015, "cell": "gunmetal", "x": -0.072, "z": -0.072, "bevel": 0 },
+      { "p": "box", "w": 0.015, "h": 0.198, "d": 0.015, "cell": "gunmetal", "x": 0.072, "z": -0.072, "bevel": 0 },
+      { "p": "box", "w": 0.168, "h": 0.018, "d": 0.168, "cell": "brass", "y": 0.198, "bevel": 0 },
+      { "p": "plate", "w": 0.102, "d": 0.102, "cell": "e_uranium", "y": 0.102 }
+    ]
+  }
+}

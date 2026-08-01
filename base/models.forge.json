@@ -1,0 +1,203 @@
+{
+  "//": [
+    "Forges -- monolithic single volumes with one dark recessed mouth. Mass is",
+    "the message, so appendages are kept to a minimum: stone is masonry-chamfered,",
+    "steel adds riveted banding, and the arc tier trades its chimney for a coil",
+    "ring. The mouth is modelled, not textured -- a dark surround with an emissive",
+    "plate set back inside it, because a glow painted flat on a wall reads as a",
+    "sticker and a recess reads as a fire.",
+    "",
+    "Ported from modelgen/gen_forge.py and gen_fabricator.py. Blender was Z-up",
+    "and this is Y-up, so what was that file's y is this file's z."
+  ],
+
+  "slag_forge": {
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 1.9, "h": 0.16, "d": 1.9, "cell": "basalt", "bevel": 0.03 },
+      { "p": "box", "w": 1.75, "h": 1.55, "d": 1.75, "cell": "weathered_stone", "bevel": 0.05 },
+      { "p": "box", "w": 1.45, "h": 0.22, "d": 1.45, "cell": "granite", "y": 1.55, "bevel": 0.04 },
+      { "p": "cylinder", "r": 0.20, "h": 0.55, "seg": 8, "cell": "basalt", "x": 0.45, "y": 1.77, "z": 0.45 },
+      { "p": "box", "w": 0.76, "h": 0.66, "d": 0.10, "cell": "machine_shadow", "y": 0.28, "z": -0.88, "bevel": 0.02 }
+    ],
+    "children": {
+      "GLOW_Mouth": {
+        "parts": [ { "p": "box", "w": 0.62, "h": 0.52, "d": 0.03, "cell": "e_furnace", "y": 0.32, "z": -0.90, "bevel": 0 } ]
+      }
+    }
+  },
+
+  "blast_forge": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 1.95, "h": 0.16, "d": 1.95, "cell": "basalt", "bevel": 0.03 },
+      { "p": "box", "w": 1.8, "h": 1.85, "d": 1.8, "cell": "cast_iron", "bevel": 0.045 },
+      { "p": "box", "w": 1.9, "h": 0.12, "d": 1.9, "cell": "rust", "y": 0.55, "bevel": 0.02 },
+      { "p": "box", "w": 1.9, "h": 0.12, "d": 1.9, "cell": "rust", "y": 1.25, "bevel": 0.02 },
+      { "p": "cylinder", "r": 0.22, "h": 0.70, "seg": 8, "cell": "gunmetal", "x": 0.5, "y": 1.85, "z": 0.5 },
+      { "p": "box", "w": 0.84, "h": 0.72, "d": 0.10, "cell": "machine_shadow", "y": 0.32, "z": -0.91, "bevel": 0.02 }
+    ],
+    "children": {
+      "GLOW_Mouth": {
+        "parts": [ { "p": "box", "w": 0.70, "h": 0.58, "d": 0.03, "cell": "e_furnace", "y": 0.36, "z": -0.93, "bevel": 0 } ]
+      }
+    }
+  },
+
+  "arc_forge": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.95, "h": 0.20, "d": 2.95, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 2.7, "h": 1.95, "d": 2.7, "cell": "steel_mid", "bevel": 0.05 },
+      { "p": "cylinder", "r": 1.05, "h": 0.16, "seg": 16, "cell": "copper", "y": 1.95 },
+      { "p": "box", "w": 0.24, "h": 0.85, "d": 0.24, "cell": "gunmetal", "x": 1.15, "y": 1.95, "z": 1.15, "bevel": 0.02 },
+      { "p": "box", "w": 1.09, "h": 0.84, "d": 0.10, "cell": "machine_shadow", "y": 0.40, "z": -1.36, "bevel": 0.02 }
+    ],
+    "children": {
+      "GLOW_Mouth": {
+        "parts": [ { "p": "box", "w": 0.95, "h": 0.70, "d": 0.03, "cell": "e_furnace", "y": 0.44, "z": -1.38, "bevel": 0 } ]
+      },
+      "GLOW_Coil": {
+        "parts": [ { "p": "plate", "w": 1.6, "d": 1.6, "cell": "e_science_blue", "y": 2.12 } ]
+      }
+    }
+  },
+
+  "fabricator_1": {
+    "//": "The crank IS the silhouette. Roof greeble stays at one vent so it reads.",
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.85, "h": 0.14, "d": 2.85, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 2.6, "h": 1.35, "d": 2.6, "cell": "steel_mid", "y": 0.12, "bevel": 0.05 },
+      { "p": "box", "w": 2.2, "h": 0.30, "d": 2.2, "cell": "gunmetal", "y": 1.47, "bevel": 0.04 },
+      { "p": "box", "w": 0.55, "h": 0.16, "d": 0.55, "cell": "rust", "x": -0.7, "y": 1.77, "z": 0.7, "bevel": 0.02 },
+      { "p": "box", "w": 0.60, "h": 0.32, "d": 0.16, "cell": "rust", "y": 0.55, "z": -1.34, "bevel": 0.02 },
+      { "p": "box", "w": 0.60, "h": 0.32, "d": 0.16, "cell": "rust", "y": 0.55, "z": 1.34, "bevel": 0.02 }
+    ],
+    "children": {
+      "ANIM_Crank": {
+        "at": [1.32, 0.80, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.46, "h": 0.10, "seg": 14, "cell": "rust", "rz": 90 },
+          { "p": "box", "w": 0.06, "h": 0.86, "d": 0.08, "cell": "gunmetal", "x": 0.05, "bevel": 0.01 },
+          { "p": "box", "w": 0.06, "h": 0.08, "d": 0.86, "cell": "gunmetal", "x": 0.05, "bevel": 0.01 },
+          { "p": "cylinder", "r": 0.07, "h": 0.16, "seg": 8, "cell": "rust", "x": 0.05, "y": 0.34, "rz": 90 }
+        ]
+      },
+      "GLOW_Status0": { "parts": [ { "p": "plate", "w": 0.14, "d": 0.05, "cell": "e_ember", "x": -0.5, "y": 1.10, "z": -1.31 } ] }
+    }
+  },
+
+  "fabricator_2": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.85, "h": 0.14, "d": 2.85, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 2.6, "h": 1.35, "d": 2.6, "cell": "steel_mid", "y": 0.12, "bevel": 0.05 },
+      { "p": "box", "w": 2.2, "h": 0.30, "d": 2.2, "cell": "gunmetal", "y": 1.47, "bevel": 0.04 },
+      { "p": "box", "w": 0.55, "h": 0.16, "d": 0.55, "cell": "copper", "x": -0.7, "y": 1.77, "z": 0.7, "bevel": 0.02 },
+      { "p": "box", "w": 0.60, "h": 0.32, "d": 0.16, "cell": "copper", "y": 0.55, "z": -1.34, "bevel": 0.02 },
+      { "p": "box", "w": 0.60, "h": 0.32, "d": 0.16, "cell": "copper", "y": 0.55, "z": 1.34, "bevel": 0.02 }
+    ],
+    "children": {
+      "ANIM_Crank": {
+        "at": [1.32, 0.80, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.46, "h": 0.10, "seg": 14, "cell": "copper", "rz": 90 },
+          { "p": "box", "w": 0.06, "h": 0.86, "d": 0.08, "cell": "gunmetal", "x": 0.05, "bevel": 0.01 },
+          { "p": "box", "w": 0.06, "h": 0.08, "d": 0.86, "cell": "gunmetal", "x": 0.05, "bevel": 0.01 },
+          { "p": "cylinder", "r": 0.07, "h": 0.16, "seg": 8, "cell": "rust", "x": 0.05, "y": 0.34, "rz": 90 }
+        ]
+      },
+      "GLOW_Status0": { "parts": [ { "p": "plate", "w": 0.14, "d": 0.05, "cell": "e_science_blue", "x": -0.5, "y": 1.10, "z": -1.31 } ] },
+      "GLOW_Status1": { "parts": [ { "p": "plate", "w": 0.14, "d": 0.05, "cell": "e_science_blue", "x": -0.28, "y": 1.10, "z": -1.31 } ] }
+    }
+  },
+
+  "fabricator_3": {
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.85, "h": 0.14, "d": 2.85, "cell": "cast_iron", "bevel": 0.03 },
+      { "p": "box", "w": 2.6, "h": 1.35, "d": 2.6, "cell": "steel_mid", "y": 0.12, "bevel": 0.05 },
+      { "p": "box", "w": 2.2, "h": 0.30, "d": 2.2, "cell": "gunmetal", "y": 1.47, "bevel": 0.04 },
+      { "p": "box", "w": 0.55, "h": 0.16, "d": 0.55, "cell": "brass", "x": -0.7, "y": 1.77, "z": 0.7, "bevel": 0.02 },
+      { "p": "box", "w": 0.60, "h": 0.32, "d": 0.16, "cell": "brass", "y": 0.55, "z": -1.34, "bevel": 0.02 },
+      { "p": "box", "w": 0.60, "h": 0.32, "d": 0.16, "cell": "brass", "y": 0.55, "z": 1.34, "bevel": 0.02 }
+    ],
+    "children": {
+      "ANIM_Crank": {
+        "at": [1.32, 0.80, 0],
+        "parts": [
+          { "p": "cylinder", "r": 0.46, "h": 0.10, "seg": 14, "cell": "brass", "rz": 90 },
+          { "p": "box", "w": 0.06, "h": 0.86, "d": 0.08, "cell": "gunmetal", "x": 0.05, "bevel": 0.01 },
+          { "p": "box", "w": 0.06, "h": 0.08, "d": 0.86, "cell": "gunmetal", "x": 0.05, "bevel": 0.01 },
+          { "p": "cylinder", "r": 0.07, "h": 0.16, "seg": 8, "cell": "rust", "x": 0.05, "y": 0.34, "rz": 90 }
+        ]
+      },
+      "GLOW_Status0": { "parts": [ { "p": "plate", "w": 0.14, "d": 0.05, "cell": "e_science_green", "x": -0.5, "y": 1.10, "z": -1.31 } ] },
+      "GLOW_Status1": { "parts": [ { "p": "plate", "w": 0.14, "d": 0.05, "cell": "e_science_green", "x": -0.28, "y": 1.10, "z": -1.31 } ] },
+      "GLOW_Status2": { "parts": [ { "p": "plate", "w": 0.14, "d": 0.05, "cell": "e_science_green", "x": -0.06, "y": 1.10, "z": -1.31 } ] }
+    }
+  },
+
+  "archive": {
+    "//": "A reader of old data: a low drum wearing a ring of glyphs.",
+    "budget": 1500,
+    "parts": [
+      { "p": "box", "w": 2.8, "h": 0.55, "d": 2.8, "cell": "cast_iron", "bevel": 0.04 },
+      { "p": "box", "w": 2.3, "h": 0.45, "d": 2.3, "cell": "steel_mid", "y": 0.55, "bevel": 0.04 },
+      { "p": "cylinder", "r": 0.85, "h": 0.75, "seg": 16, "cell": "weathered_stone", "y": 1.00 },
+      { "p": "cylinder", "r": 0.95, "h": 0.10, "seg": 16, "cell": "copper_patina", "y": 1.75 },
+      { "p": "box", "w": 0.30, "h": 0.20, "d": 0.12, "cell": "gunmetal", "x": -0.9, "y": 0.72, "z": -1.18, "bevel": 0.01 },
+      { "p": "box", "w": 0.30, "h": 0.20, "d": 0.12, "cell": "gunmetal", "x": -0.3, "y": 0.72, "z": -1.18, "bevel": 0.01 },
+      { "p": "box", "w": 0.30, "h": 0.20, "d": 0.12, "cell": "gunmetal", "x": 0.3, "y": 0.72, "z": -1.18, "bevel": 0.01 },
+      { "p": "box", "w": 0.30, "h": 0.20, "d": 0.12, "cell": "gunmetal", "x": 0.9, "y": 0.72, "z": -1.18, "bevel": 0.01 }
+    ],
+    "children": {
+      "GLOW_GlyphRing": {
+        "parts": [ { "p": "cylinder", "r": 1.02, "h": 0.05, "seg": 20, "cell": "e_hologram", "y": 1.86 } ]
+      }
+    }
+  },
+
+  "breaker": {
+    "//": [
+      "A shipbreaker's maw. The jaw geometry is captured Warden hardware, chained",
+      "down and pressed into service, and it keeps its red tips -- still their kit,",
+      "now yours. Chrome stays reserved for the Wardens; this gets galvanized."
+    ],
+    "budget": 1600,
+    "parts": [
+      { "p": "box", "w": 2.8, "h": 0.60, "d": 2.8, "cell": "cast_iron", "bevel": 0.04 },
+      { "p": "box", "w": 2.0, "h": 0.95, "d": 2.2, "cell": "steel_mid", "y": 0.60, "bevel": 0.04 },
+      { "p": "box", "w": 1.4, "h": 0.45, "d": 1.0, "cell": "rust", "y": 1.55, "z": 0.9, "bevel": 0.03 },
+      { "p": "box", "w": 0.10, "h": 0.95, "d": 0.10, "cell": "gunmetal", "x": -1.05, "y": 0.60, "z": -0.85, "bevel": 0.01 },
+      { "p": "box", "w": 0.10, "h": 0.95, "d": 0.10, "cell": "gunmetal", "x": 1.05, "y": 0.60, "z": -0.75, "bevel": 0.01 },
+      { "p": "box", "w": 0.10, "h": 0.95, "d": 0.10, "cell": "gunmetal", "x": -1.05, "y": 0.60, "z": -0.65, "bevel": 0.01 },
+      { "p": "box", "w": 0.10, "h": 0.95, "d": 0.10, "cell": "gunmetal", "x": 1.05, "y": 0.60, "z": -0.55, "bevel": 0.01 }
+    ],
+    "children": {
+      "ANIM_JawL": {
+        "at": [0, 1.55, -0.55],
+        "parts": [
+          { "p": "box", "w": 1.25, "h": 0.40, "d": 0.22, "cell": "galvanized", "bevel": 0.03 },
+          { "p": "cone", "r": 0.11, "r2": 0.02, "h": 0.34, "seg": 6, "cell": "fang_bone", "x": -0.45, "y": 0.40 },
+          { "p": "cone", "r": 0.11, "r2": 0.02, "h": 0.34, "seg": 6, "cell": "fang_bone", "x": -0.15, "y": 0.40 },
+          { "p": "cone", "r": 0.11, "r2": 0.02, "h": 0.34, "seg": 6, "cell": "fang_bone", "x": 0.15, "y": 0.40 },
+          { "p": "cone", "r": 0.11, "r2": 0.02, "h": 0.34, "seg": 6, "cell": "fang_bone", "x": 0.45, "y": 0.40 }
+        ]
+      },
+      "ANIM_JawR": {
+        "at": [0, 1.55, 0.55],
+        "parts": [
+          { "p": "box", "w": 1.25, "h": 0.40, "d": 0.22, "cell": "galvanized", "bevel": 0.03 },
+          { "p": "cone", "r": 0.11, "r2": 0.02, "h": 0.34, "seg": 6, "cell": "fang_bone", "x": -0.45, "y": 0.40 },
+          { "p": "cone", "r": 0.11, "r2": 0.02, "h": 0.34, "seg": 6, "cell": "fang_bone", "x": -0.15, "y": 0.40 },
+          { "p": "cone", "r": 0.11, "r2": 0.02, "h": 0.34, "seg": 6, "cell": "fang_bone", "x": 0.15, "y": 0.40 },
+          { "p": "cone", "r": 0.11, "r2": 0.02, "h": 0.34, "seg": 6, "cell": "fang_bone", "x": 0.45, "y": 0.40 }
+        ]
+      },
+      "GLOW_TipL": { "parts": [ { "p": "plate", "w": 0.9, "d": 0.06, "cell": "e_alert", "y": 1.98, "z": -0.62 } ] },
+      "GLOW_TipR": { "parts": [ { "p": "plate", "w": 0.9, "d": 0.06, "cell": "e_alert", "y": 1.98, "z": 0.62 } ] }
+    }
+  }
+}
