@@ -1,0 +1,477 @@
+{
+  "//": [
+    "THE LATTICE -- roads, rail, towns, yards and garrisons.",
+    "",
+    "Ported from modelgen/gen_town.py and gen_industry.py. Geometry is data now:",
+    "a list of primitives, built by the editor, with no Blender in the loop.",
+    "",
+    "Conventions: 1 unit = 1 metre, Y up, origin at ground centre. `cell` names",
+    "a palette square; row 7 (e_*) is emissive. `bevel` defaults to 0.03 because",
+    "the art bible puts a chamfer on every edge -- set it to 0 only for parts",
+    "nobody will stand next to. See docs/TOOLING.md for the full primitive list.",
+    "",
+    "Art rules these were built to: straight lines are the storytelling, because",
+    "nothing in nature is straight. Everything is worn -- a pristine road would",
+    "read as somebody else's live city rather than a dead one. Ground pieces stay",
+    "under 0.5 m so they never block sightlines to machines."
+  ],
+
+  "town_road": {
+    "budget": 200,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 0.06, "d": 1.0, "cell": "slate", "bevel": 0 },
+      { "p": "box", "w": 1.0, "h": 0.10, "d": 0.09, "cell": "weathered_stone", "z": -0.455, "bevel": 0.01 },
+      { "p": "box", "w": 1.0, "h": 0.10, "d": 0.09, "cell": "weathered_stone", "z": 0.455, "bevel": 0.01 }
+    ]
+  },
+
+  "town_road_junction": {
+    "budget": 120,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 0.06, "d": 1.0, "cell": "slate", "bevel": 0 },
+      { "p": "box", "w": 0.34, "h": 0.02, "d": 0.34, "cell": "basalt", "y": 0.06, "bevel": 0 }
+    ]
+  },
+
+  "highway": {
+    "//": "Dual carriageway: this is one lane. Median is its own tile.",
+    "budget": 200,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 0.10, "d": 1.0, "cell": "basalt", "bevel": 0 },
+      { "p": "box", "w": 0.96, "h": 0.05, "d": 1.0, "cell": "rust", "y": 0.10, "bevel": 0 },
+      { "p": "box", "w": 0.07, "h": 0.01, "d": 0.42, "cell": "pale_silt", "y": 0.15, "bevel": 0 }
+    ]
+  },
+
+  "highway_median": {
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 0.10, "d": 1.0, "cell": "basalt", "bevel": 0 },
+      { "p": "box", "w": 0.90, "h": 0.16, "d": 1.0, "cell": "weathered_stone", "y": 0.10, "bevel": 0.02 },
+      { "p": "box", "w": 0.08, "h": 0.22, "d": 1.0, "cell": "gunmetal", "y": 0.26, "bevel": 0.01 },
+      { "p": "box", "w": 0.10, "h": 0.30, "d": 0.10, "cell": "cast_iron", "y": 0.26, "z": 0.3, "bevel": 0.01 }
+    ]
+  },
+
+  "highway_median_broken": {
+    "//": "Driven through: barrier folded flat, kerb only on one side.",
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 0.10, "d": 1.0, "cell": "basalt", "bevel": 0 },
+      { "p": "box", "w": 0.90, "h": 0.14, "d": 0.44, "cell": "weathered_stone", "y": 0.10, "z": -0.28, "bevel": 0.02 },
+      { "p": "box", "w": 0.30, "h": 0.06, "d": 0.08, "cell": "gunmetal", "y": 0.11, "z": 0.2, "bevel": 0.01 },
+      { "p": "rock", "r": 0.18, "cell": "slate", "x": 0.15, "z": 0.3, "seed": 23 }
+    ]
+  },
+
+  "highway_broken": {
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 0.06, "d": 1.0, "cell": "basalt", "bevel": 0 },
+      { "p": "box", "w": 0.9, "h": 0.05, "d": 0.55, "cell": "rust", "y": 0.06, "bevel": 0 },
+      { "p": "box", "w": 0.3, "h": 0.12, "d": 0.3, "cell": "slate", "x": 0.2, "z": 0.3, "bevel": 0.02 },
+      { "p": "box", "w": 0.22, "h": 0.09, "d": 0.22, "cell": "granite", "x": -0.25, "z": 0.36, "bevel": 0.02 },
+      { "p": "box", "w": 0.06, "h": 0.16, "d": 0.45, "cell": "gunmetal", "x": -0.47, "y": 0.06, "z": -0.25, "bevel": 0.01 }
+    ]
+  },
+
+  "highway_bridge": {
+    "//": "The only piece of the old world that crosses water. Seeing one from",
+    "//2": "across a lake says there is a route, which beats any signpost.",
+    "budget": 400,
+    "parts": [
+      { "p": "cone", "r": 0.34, "r2": 0.22, "h": 0.55, "seg": 8, "cell": "granite" },
+      { "p": "box", "w": 1.0, "h": 0.22, "d": 1.0, "cell": "weathered_stone", "y": 0.55, "bevel": 0.02 },
+      { "p": "box", "w": 0.92, "h": 0.04, "d": 1.0, "cell": "rust", "y": 0.77, "bevel": 0 },
+      { "p": "box", "w": 0.07, "h": 0.30, "d": 1.0, "cell": "cast_iron", "x": -0.465, "y": 0.77, "bevel": 0.01 },
+      { "p": "box", "w": 0.07, "h": 0.30, "d": 1.0, "cell": "cast_iron", "x": 0.465, "y": 0.77, "bevel": 0.01 }
+    ]
+  },
+
+  "highway_bridge_out": {
+    "budget": 350,
+    "parts": [
+      { "p": "cone", "r": 0.34, "r2": 0.20, "h": 0.62, "seg": 8, "cell": "granite" },
+      { "p": "box", "w": 0.8, "h": 0.20, "d": 0.44, "cell": "weathered_stone", "y": 0.55, "z": -0.28, "bevel": 0.02 },
+      { "p": "box", "w": 0.10, "h": 0.09, "d": 0.6, "cell": "gunmetal", "y": 0.50, "z": 0.22, "bevel": 0.01, "rx": 9 },
+      { "p": "box", "w": 0.06, "h": 0.34, "d": 0.06, "cell": "cast_iron", "x": -0.3, "y": 0.24, "z": 0.1, "bevel": 0 }
+    ]
+  },
+
+  "highway_ramp": {
+    "//": "A wedge, so the geometry itself explains the grade change.",
+    "budget": 250,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 0.14, "d": 1.06, "cell": "rust", "bevel": 0, "rx": -6 },
+      { "p": "box", "w": 0.08, "h": 0.12, "d": 1.0, "cell": "weathered_stone", "x": -0.46, "y": 0.02, "bevel": 0.01 },
+      { "p": "box", "w": 0.08, "h": 0.12, "d": 1.0, "cell": "weathered_stone", "x": 0.46, "y": 0.02, "bevel": 0.01 }
+    ]
+  },
+
+  "rail_track": {
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 0.08, "d": 1.0, "cell": "slate", "bevel": 0 },
+      { "p": "box", "w": 0.86, "h": 0.06, "d": 0.14, "cell": "bark", "y": 0.08, "z": -0.25, "bevel": 0.01 },
+      { "p": "box", "w": 0.86, "h": 0.06, "d": 0.14, "cell": "bark", "y": 0.08, "z": 0.25, "bevel": 0.01 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 1.0, "cell": "steel_light", "x": -0.28, "y": 0.14, "bevel": 0.01 },
+      { "p": "box", "w": 0.07, "h": 0.10, "d": 1.0, "cell": "steel_light", "x": 0.28, "y": 0.14, "bevel": 0.01 }
+    ]
+  },
+
+  "rail_broken": {
+    "//": "Sleepers left, rails gone to somebody's forge, one length bent aside.",
+    "budget": 300,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 0.07, "d": 1.0, "cell": "slate", "bevel": 0 },
+      { "p": "box", "w": 0.7, "h": 0.05, "d": 0.13, "cell": "bark", "y": 0.07, "z": -0.22, "bevel": 0.01 },
+      { "p": "box", "w": 0.5, "h": 0.05, "d": 0.13, "cell": "bark", "x": 0.12, "y": 0.07, "z": 0.28, "bevel": 0.01, "ry": 8 },
+      { "p": "box", "w": 0.06, "h": 0.09, "d": 0.55, "cell": "rust", "x": -0.34, "y": 0.12, "z": -0.1, "bevel": 0.01, "ry": 14 },
+      { "p": "rock", "r": 0.16, "cell": "granite", "x": 0.3, "z": -0.05, "seed": 29 }
+    ]
+  },
+
+  "rail_wagon": {
+    "//": "Loaded, sealed, scheduled, never uncoupled. Best silhouette rail offers.",
+    "budget": 700,
+    "parts": [
+      { "p": "box", "w": 1.6, "h": 0.30, "d": 4.4, "cell": "cast_iron", "y": 0.55, "bevel": 0.03 },
+      { "p": "box", "w": 1.7, "h": 1.30, "d": 4.0, "cell": "rust", "y": 0.85, "bevel": 0.04 },
+      { "p": "box", "w": 0.06, "h": 1.1, "d": 4.1, "cell": "gunmetal", "x": -0.87, "y": 0.95, "bevel": 0 },
+      { "p": "box", "w": 0.06, "h": 1.1, "d": 4.1, "cell": "gunmetal", "x": 0.87, "y": 0.95, "bevel": 0 },
+      { "p": "cylinder", "r": 0.30, "h": 0.16, "seg": 8, "cell": "machine_shadow", "x": -0.80, "y": 0.30, "z": -1.4, "rz": 90 },
+      { "p": "cylinder", "r": 0.30, "h": 0.16, "seg": 8, "cell": "machine_shadow", "x": 0.80, "y": 0.30, "z": -1.4, "rz": 90 },
+      { "p": "cylinder", "r": 0.30, "h": 0.16, "seg": 8, "cell": "machine_shadow", "x": -0.80, "y": 0.30, "z": 1.4, "rz": 90 },
+      { "p": "cylinder", "r": 0.30, "h": 0.16, "seg": 8, "cell": "machine_shadow", "x": 0.80, "y": 0.30, "z": 1.4, "rz": 90 }
+    ]
+  },
+
+  "town_house_small": {
+    "//": "Four separate walls with a ragged roofline, not a box: the interior is",
+    "//2": "visible and the silhouette is broken. It has stopped being a building.",
+    "budget": 700,
+    "parts": [
+      { "p": "box", "w": 3.3, "h": 0.08, "d": 3.3, "cell": "weathered_stone", "bevel": 0.02 },
+      { "p": "box", "w": 3.0, "h": 2.6, "d": 0.18, "cell": "clay", "y": 0.08, "z": 1.41, "bevel": 0.03 },
+      { "p": "box", "w": 3.0, "h": 2.08, "d": 0.18, "cell": "clay", "y": 0.08, "z": -1.41, "bevel": 0.03 },
+      { "p": "box", "w": 0.18, "h": 1.69, "d": 3.0, "cell": "clay", "x": 1.41, "y": 0.08, "bevel": 0.03 },
+      { "p": "box", "w": 0.18, "h": 0.53, "d": 1.2, "cell": "clay", "x": -1.41, "y": 0.08, "z": -0.84, "bevel": 0.03 },
+      { "p": "rock", "r": 0.36, "cell": "slate", "x": -1.7, "z": 0.2, "seed": 2 }
+    ]
+  },
+
+  "town_house_mid": {
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 5.3, "h": 0.08, "d": 4.3, "cell": "weathered_stone", "bevel": 0.02 },
+      { "p": "box", "w": 5.0, "h": 4.2, "d": 0.18, "cell": "dust_ochre", "y": 0.08, "z": 1.91, "bevel": 0.03 },
+      { "p": "box", "w": 5.0, "h": 3.47, "d": 0.18, "cell": "dust_ochre", "y": 0.08, "z": -1.91, "bevel": 0.03 },
+      { "p": "box", "w": 0.18, "h": 2.90, "d": 4.0, "cell": "dust_ochre", "x": 2.41, "y": 0.08, "bevel": 0.03 },
+      { "p": "box", "w": 0.18, "h": 0.94, "d": 1.6, "cell": "dust_ochre", "x": -2.41, "y": 0.08, "z": -1.12, "bevel": 0.03 },
+      { "p": "box", "w": 4.1, "h": 0.08, "d": 3.28, "cell": "cast_iron", "y": 2.18, "bevel": 0.01 },
+      { "p": "rock", "r": 0.33, "cell": "slate", "x": -2.7, "z": 0.2, "seed": 5 }
+    ]
+  },
+
+  "town_block": {
+    "budget": 1000,
+    "parts": [
+      { "p": "box", "w": 7.3, "h": 0.08, "d": 6.3, "cell": "weathered_stone", "bevel": 0.02 },
+      { "p": "box", "w": 7.0, "h": 6.5, "d": 0.18, "cell": "weathered_stone", "y": 0.08, "z": 2.91, "bevel": 0.03 },
+      { "p": "box", "w": 7.0, "h": 5.52, "d": 0.18, "cell": "weathered_stone", "y": 0.08, "z": -2.91, "bevel": 0.03 },
+      { "p": "box", "w": 0.18, "h": 4.61, "d": 6.0, "cell": "weathered_stone", "x": 3.41, "y": 0.08, "bevel": 0.03 },
+      { "p": "box", "w": 0.18, "h": 1.53, "d": 2.4, "cell": "weathered_stone", "x": -3.41, "y": 0.08, "z": -1.68, "bevel": 0.03 },
+      { "p": "box", "w": 5.74, "h": 0.08, "d": 4.92, "cell": "cast_iron", "y": 2.25, "bevel": 0.01 },
+      { "p": "box", "w": 5.74, "h": 0.08, "d": 4.92, "cell": "cast_iron", "y": 4.42, "bevel": 0.01 },
+      { "p": "rock", "r": 0.30, "cell": "slate", "x": -3.7, "z": 0.2, "seed": 8 }
+    ]
+  },
+
+  "town_tower": {
+    "//": "The landmark you steer by when navigating a ruined city.",
+    "budget": 1300,
+    "parts": [
+      { "p": "box", "w": 4.8, "h": 0.08, "d": 4.8, "cell": "weathered_stone", "bevel": 0.02 },
+      { "p": "box", "w": 4.5, "h": 11.0, "d": 0.18, "cell": "granite", "y": 0.08, "z": 2.16, "bevel": 0.03 },
+      { "p": "box", "w": 4.5, "h": 9.62, "d": 0.18, "cell": "granite", "y": 0.08, "z": -2.16, "bevel": 0.03 },
+      { "p": "box", "w": 0.18, "h": 8.25, "d": 4.5, "cell": "granite", "x": 2.16, "y": 0.08, "bevel": 0.03 },
+      { "p": "box", "w": 0.18, "h": 2.60, "d": 1.8, "cell": "granite", "x": -2.16, "y": 0.08, "z": -1.26, "bevel": 0.03 },
+      { "p": "box", "w": 3.69, "h": 0.08, "d": 3.69, "cell": "cast_iron", "y": 2.83, "bevel": 0.01 },
+      { "p": "box", "w": 3.69, "h": 0.08, "d": 3.69, "cell": "cast_iron", "y": 5.58, "bevel": 0.01 },
+      { "p": "box", "w": 3.69, "h": 0.08, "d": 3.69, "cell": "cast_iron", "y": 8.33, "bevel": 0.01 },
+      { "p": "cylinder", "r": 0.09, "h": 2.2, "seg": 6, "cell": "gunmetal", "y": 11.0 },
+      { "p": "rock", "r": 0.28, "cell": "slate", "x": -2.45, "z": 0.2, "seed": 13 }
+    ],
+    "children": {
+      "GLOW_Beacon": {
+        "parts": [
+          { "p": "plate", "w": 0.16, "d": 0.16, "cell": "e_alert", "y": 13.3, "t": 0.04 }
+        ]
+      }
+    }
+  },
+
+  "town_monument": {
+    "//": "Every town has one: a monument to whatever the Lattice was proud of here.",
+    "budget": 700,
+    "parts": [
+      { "p": "box", "w": 3.2, "h": 0.22, "d": 3.2, "cell": "limestone", "bevel": 0.03 },
+      { "p": "box", "w": 2.4, "h": 0.20, "d": 2.4, "cell": "weathered_stone", "y": 0.22, "bevel": 0.03 },
+      { "p": "cone", "r": 0.55, "r2": 0.10, "h": 3.4, "seg": 8, "cell": "galvanized", "y": 0.42 },
+      { "p": "rock", "r": 0.30, "cell": "granite", "x": 1.3, "z": -1.1, "seed": 17 }
+    ],
+    "children": {
+      "GLOW_Glyph": {
+        "parts": [
+          { "p": "plate", "w": 0.5, "d": 0.5, "cell": "e_hologram", "y": 0.44, "t": 0.03 }
+        ]
+      }
+    }
+  },
+
+  "street_lamp_dead": {
+    "budget": 250,
+    "parts": [
+      { "p": "box", "w": 0.22, "h": 0.10, "d": 0.22, "cell": "cast_iron", "bevel": 0.02 },
+      { "p": "cylinder", "r": 0.055, "h": 2.6, "seg": 6, "cell": "gunmetal", "y": 0.10 },
+      { "p": "box", "w": 0.5, "h": 0.07, "d": 0.08, "cell": "gunmetal", "x": 0.2, "y": 2.66, "bevel": 0.01 }
+    ]
+  },
+
+  "street_hulk": {
+    "//": "Parked considerately, handbrake on. Whoever they were, they were tidy.",
+    "budget": 500,
+    "parts": [
+      { "p": "box", "w": 1.9, "h": 0.9, "d": 3.4, "cell": "rust", "y": 0.22, "bevel": 0.05 },
+      { "p": "box", "w": 1.5, "h": 0.7, "d": 1.1, "cell": "cast_iron", "y": 1.12, "z": 1.0, "bevel": 0.04 },
+      { "p": "cylinder", "r": 0.33, "h": 0.2, "seg": 8, "cell": "hazard_black", "x": -0.85, "y": 0.33, "z": -1.0, "rz": 90 },
+      { "p": "cylinder", "r": 0.33, "h": 0.2, "seg": 8, "cell": "hazard_black", "x": 0.85, "y": 0.33, "z": -1.0, "rz": 90 }
+    ]
+  },
+
+  "yard_silo": {
+    "//": "Tallest thing in a yard and the reason you spotted it. Still full.",
+    "budget": 900,
+    "parts": [
+      { "p": "cylinder", "r": 1.7, "h": 0.5, "seg": 10, "cell": "weathered_stone" },
+      { "p": "cylinder", "r": 1.5, "h": 6.4, "seg": 10, "cell": "galvanized", "y": 0.5 },
+      { "p": "cylinder", "r": 1.56, "h": 0.16, "seg": 10, "cell": "rust", "y": 3.2 },
+      { "p": "cone", "r": 1.5, "r2": 0.35, "h": 1.1, "seg": 10, "cell": "cast_iron", "y": 6.9 },
+      { "p": "box", "w": 0.5, "h": 2.4, "d": 0.5, "cell": "rust", "x": 1.6, "y": 2.6, "z": 0.3, "bevel": 0.03 }
+    ]
+  },
+
+  "yard_stack": {
+    "//": "Cold for so long that birds consider it geology.",
+    "budget": 900,
+    "parts": [
+      { "p": "box", "w": 2.6, "h": 0.9, "d": 2.6, "cell": "weathered_stone", "bevel": 0.04 },
+      { "p": "cone", "r": 1.05, "r2": 0.6, "h": 9.5, "seg": 10, "cell": "clay", "y": 0.9 },
+      { "p": "cylinder", "r": 0.68, "h": 0.3, "seg": 10, "cell": "cast_iron", "y": 10.4 },
+      { "p": "box", "w": 0.10, "h": 8.0, "d": 0.10, "cell": "gunmetal", "x": 0.95, "y": 1.0, "bevel": 0 }
+    ]
+  },
+
+  "yard_tank": {
+    "budget": 900,
+    "parts": [
+      { "p": "cylinder", "r": 2.4, "h": 3.2, "seg": 12, "cell": "steel_blue" },
+      { "p": "cylinder", "r": 2.46, "h": 0.14, "seg": 12, "cell": "rust", "y": 0.9 },
+      { "p": "cylinder", "r": 2.46, "h": 0.14, "seg": 12, "cell": "rust", "y": 2.1 },
+      { "p": "cylinder", "r": 2.4, "h": 0.22, "seg": 12, "cell": "galvanized", "y": 3.2 },
+      { "p": "box", "w": 0.09, "h": 3.4, "d": 0.09, "cell": "gunmetal", "x": 2.42, "bevel": 0 },
+      { "p": "box", "w": 1.6, "h": 0.5, "d": 0.07, "cell": "gunmetal", "y": 3.42, "z": 1.6, "bevel": 0 }
+    ]
+  },
+
+  "yard_warehouse": {
+    "//": "Ribbed sheet walls with one panel missing, so it reads as open.",
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 9.0, "h": 3.4, "d": 6.0, "cell": "rust", "bevel": 0.04 },
+      { "p": "box", "w": 0.08, "h": 3.13, "d": 6.04, "cell": "gunmetal", "x": -3.21, "bevel": 0 },
+      { "p": "box", "w": 0.08, "h": 3.13, "d": 6.04, "cell": "gunmetal", "x": -1.29, "bevel": 0 },
+      { "p": "box", "w": 0.08, "h": 3.13, "d": 6.04, "cell": "gunmetal", "x": 0.64, "bevel": 0 },
+      { "p": "box", "w": 0.08, "h": 3.13, "d": 6.04, "cell": "gunmetal", "x": 2.57, "bevel": 0 },
+      { "p": "box", "w": 2.34, "h": 1.87, "d": 0.10, "cell": "machine_shadow", "x": 1.98, "z": -3.0, "bevel": 0 },
+      { "p": "rock", "r": 0.28, "cell": "slate", "x": 1.98, "z": -3.35, "seed": 3 }
+    ]
+  },
+
+  "yard_hall": {
+    "budget": 1000,
+    "parts": [
+      { "p": "box", "w": 7.0, "h": 5.0, "d": 5.0, "cell": "dust_ochre", "bevel": 0.04 },
+      { "p": "box", "w": 0.08, "h": 4.6, "d": 5.04, "cell": "gunmetal", "x": -2.1, "bevel": 0 },
+      { "p": "box", "w": 0.08, "h": 4.6, "d": 5.04, "cell": "gunmetal", "x": 0, "bevel": 0 },
+      { "p": "box", "w": 0.08, "h": 4.6, "d": 5.04, "cell": "gunmetal", "x": 2.1, "bevel": 0 },
+      { "p": "box", "w": 1.82, "h": 2.75, "d": 0.10, "cell": "machine_shadow", "x": 1.54, "z": -2.5, "bevel": 0 },
+      { "p": "box", "w": 2.6, "h": 0.9, "d": 5.1, "cell": "cast_iron", "y": 5.0, "bevel": 0.03 }
+    ]
+  },
+
+  "yard_gantry": {
+    "//": "Straight lines at height: the loudest thing a ruin can say about intent.",
+    "budget": 1000,
+    "parts": [
+      { "p": "box", "w": 0.36, "h": 5.0, "d": 0.36, "cell": "hazard_yellow", "x": -3.4, "bevel": 0.02 },
+      { "p": "box", "w": 0.36, "h": 5.0, "d": 0.36, "cell": "hazard_yellow", "x": 3.4, "bevel": 0.02 },
+      { "p": "box", "w": 0.08, "h": 0.7, "d": 0.08, "cell": "gunmetal", "x": -3.8, "y": 4.9, "bevel": 0 },
+      { "p": "box", "w": 0.08, "h": 0.7, "d": 0.08, "cell": "gunmetal", "x": 3.8, "y": 4.9, "bevel": 0 },
+      { "p": "box", "w": 7.6, "h": 0.08, "d": 0.08, "cell": "gunmetal", "y": 4.96, "bevel": 0 },
+      { "p": "box", "w": 7.6, "h": 0.08, "d": 0.08, "cell": "gunmetal", "y": 5.48, "bevel": 0 },
+      { "p": "box", "w": 0.9, "h": 0.6, "d": 0.8, "cell": "cast_iron", "x": -1.1, "y": 4.3, "bevel": 0.02 },
+      { "p": "box", "w": 0.14, "h": 1.6, "d": 0.14, "cell": "rust", "x": -1.1, "y": 2.7, "bevel": 0 }
+    ]
+  },
+
+  "yard_piperack": {
+    "//": "The connective tissue that makes a yard look like a system.",
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 0.22, "h": 2.6, "d": 0.22, "cell": "gunmetal", "x": -2.2, "bevel": 0.02 },
+      { "p": "box", "w": 0.22, "h": 2.6, "d": 0.22, "cell": "gunmetal", "x": 2.2, "bevel": 0.02 },
+      { "p": "box", "w": 4.8, "h": 0.20, "d": 0.20, "cell": "gunmetal", "y": 2.5, "bevel": 0.02 },
+      { "p": "pipe", "r": 0.22, "len": 5.0, "seg": 8, "cell": "copper_patina", "y": 2.9 },
+      { "p": "pipe", "r": 0.16, "len": 5.0, "seg": 8, "cell": "cast_iron", "y": 2.85, "z": 0.5 },
+      { "p": "pipe", "r": 0.16, "len": 5.0, "seg": 8, "cell": "rust", "y": 2.85, "z": -0.5 }
+    ]
+  },
+
+  "yard_conveyor": {
+    "//": "It carried the hill into the plant one handful at a time, for centuries.",
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 0.6, "h": 0.3, "d": 0.6, "cell": "weathered_stone", "x": -2.6, "bevel": 0.02 },
+      { "p": "box", "w": 0.24, "h": 3.0, "d": 0.24, "cell": "rust", "x": -2.6, "y": 0.3, "bevel": 0.02 },
+      { "p": "box", "w": 0.24, "h": 4.2, "d": 0.24, "cell": "rust", "x": 2.6, "y": 0.3, "bevel": 0.02 },
+      { "p": "box", "w": 6.0, "h": 0.5, "d": 1.1, "cell": "machine_shadow", "y": 3.4, "bevel": 0.02, "rz": -6 },
+      { "p": "box", "w": 6.0, "h": 0.35, "d": 1.2, "cell": "galvanized", "y": 3.9, "bevel": 0.02, "rz": -6 }
+    ]
+  },
+
+  "yard_fence": {
+    "budget": 200,
+    "parts": [
+      { "p": "box", "w": 1.0, "h": 0.16, "d": 0.34, "cell": "weathered_stone", "bevel": 0.02 },
+      { "p": "box", "w": 0.09, "h": 2.0, "d": 0.09, "cell": "gunmetal", "x": -0.45, "y": 0.16, "bevel": 0.01 },
+      { "p": "box", "w": 0.9, "h": 1.7, "d": 0.03, "cell": "machine_shadow", "y": 0.30, "bevel": 0 },
+      { "p": "box", "w": 0.95, "h": 0.05, "d": 0.05, "cell": "rust", "y": 2.05, "bevel": 0 }
+    ]
+  },
+
+  "yard_gate": {
+    "//": "Left open. Not forced -- open. Somebody expected to be back before dark.",
+    "budget": 500,
+    "parts": [
+      { "p": "box", "w": 0.34, "h": 2.4, "d": 0.34, "cell": "weathered_stone", "x": -1.4, "bevel": 0.03 },
+      { "p": "box", "w": 0.34, "h": 2.4, "d": 0.34, "cell": "weathered_stone", "x": 1.4, "bevel": 0.03 },
+      { "p": "box", "w": 3.2, "h": 0.34, "d": 0.28, "cell": "cast_iron", "y": 2.4, "bevel": 0.02 },
+      { "p": "box", "w": 0.06, "h": 1.9, "d": 1.2, "cell": "rust", "x": -1.3, "y": 0.1, "z": 0.65, "bevel": 0.02, "ry": -28 }
+    ],
+    "children": {
+      "GLOW_Sign": {
+        "parts": [
+          { "p": "plate", "w": 0.7, "d": 0.05, "cell": "e_ember", "y": 2.62, "t": 0.3 }
+        ]
+      }
+    }
+  },
+
+  "garrison_bunker": {
+    "//": "The lowest thing in the set on purpose: it is trying not to be hit.",
+    "budget": 700,
+    "parts": [
+      { "p": "wedge", "w": 5.6, "h": 2.2, "d": 4.4, "cell": "weathered_stone", "inset": 0.28 },
+      { "p": "box", "w": 3.0, "h": 0.34, "d": 0.16, "cell": "machine_shadow", "y": 1.3, "z": -2.2, "bevel": 0 },
+      { "p": "box", "w": 3.4, "h": 0.24, "d": 0.5, "cell": "granite", "y": 1.7, "z": -2.3, "bevel": 0.02 },
+      { "p": "box", "w": 1.0, "h": 0.22, "d": 1.0, "cell": "gunmetal", "x": 1.6, "y": 2.2, "z": 1.2, "bevel": 0.02 }
+    ]
+  },
+
+  "garrison_tower": {
+    "//": "The one vertical the garrison allows itself, and it is all sensor.",
+    "budget": 1000,
+    "parts": [
+      { "p": "box", "w": 0.26, "h": 6.0, "d": 0.26, "cell": "gunmetal", "x": -1.0, "z": -1.0, "bevel": 0.02 },
+      { "p": "box", "w": 0.26, "h": 6.0, "d": 0.26, "cell": "gunmetal", "x": 1.0, "z": -1.0, "bevel": 0.02 },
+      { "p": "box", "w": 0.26, "h": 6.0, "d": 0.26, "cell": "gunmetal", "x": -1.0, "z": 1.0, "bevel": 0.02 },
+      { "p": "box", "w": 0.26, "h": 6.0, "d": 0.26, "cell": "gunmetal", "x": 1.0, "z": 1.0, "bevel": 0.02 },
+      { "p": "box", "w": 2.4, "h": 0.14, "d": 2.4, "cell": "cast_iron", "y": 3.0, "bevel": 0.01 },
+      { "p": "box", "w": 3.2, "h": 0.18, "d": 3.2, "cell": "cast_iron", "y": 6.0, "bevel": 0.02 },
+      { "p": "box", "w": 2.4, "h": 1.6, "d": 2.4, "cell": "steel_light", "y": 6.18, "bevel": 0.04 },
+      { "p": "box", "w": 2.5, "h": 0.5, "d": 0.12, "cell": "machine_shadow", "y": 6.9, "z": -1.2, "bevel": 0 }
+    ],
+    "children": {
+      "GLOW_Eye": {
+        "parts": [
+          { "p": "plate", "w": 0.5, "d": 0.06, "cell": "e_alert", "y": 7.05, "z": -1.22, "t": 0.18 }
+        ]
+      }
+    }
+  },
+
+  "garrison_barricade": {
+    "//": "The 45 degree wedge the whole military family is built from.",
+    "budget": 250,
+    "parts": [
+      { "p": "wedge", "w": 1.8, "h": 1.1, "d": 0.9, "cell": "granite", "inset": 0.45 },
+      { "p": "box", "w": 1.6, "h": 0.22, "d": 0.06, "cell": "hazard_yellow", "y": 0.5, "z": -0.45, "bevel": 0 },
+      { "p": "box", "w": 1.6, "h": 0.22, "d": 0.06, "cell": "hazard_black", "y": 0.14, "z": -0.45, "bevel": 0 }
+    ]
+  },
+
+  "garrison_hangar": {
+    "//": "Six bays, six sets of tracks leading out, none leading back in.",
+    "budget": 1200,
+    "parts": [
+      { "p": "box", "w": 11.0, "h": 4.6, "d": 8.0, "cell": "steel_blue", "bevel": 0.05 },
+      { "p": "box", "w": 11.2, "h": 0.5, "d": 8.2, "cell": "gunmetal", "y": 4.6, "bevel": 0.03 },
+      { "p": "box", "w": 5.4, "h": 3.6, "d": 0.3, "cell": "machine_shadow", "z": -4.0, "bevel": 0 },
+      { "p": "box", "w": 2.8, "h": 3.8, "d": 0.22, "cell": "steel_light", "x": -3.6, "z": -4.05, "bevel": 0.02 },
+      { "p": "box", "w": 2.8, "h": 3.8, "d": 0.22, "cell": "steel_light", "x": 3.6, "z": -4.05, "bevel": 0.02 },
+      { "p": "box", "w": 11.0, "h": 0.12, "d": 0.16, "cell": "cast_iron", "z": -4.15, "bevel": 0 }
+    ],
+    "children": {
+      "GLOW_Bay": {
+        "parts": [
+          { "p": "plate", "w": 4.8, "d": 0.9, "cell": "e_alert", "y": 0.05, "z": -3.9, "t": 0.03 }
+        ]
+      }
+    }
+  },
+
+  "garrison_mast": {
+    "//": "The only piece of the old world still doing its job. It is looking for us.",
+    "budget": 800,
+    "parts": [
+      { "p": "box", "w": 2.2, "h": 0.30, "d": 2.2, "cell": "weathered_stone", "bevel": 0.03 },
+      { "p": "cylinder", "r": 0.30, "h": 5.4, "seg": 8, "cell": "steel_light", "y": 0.30 },
+      { "p": "cone", "r": 0.44, "r2": 0.14, "h": 0.7, "seg": 8, "cell": "cast_iron", "y": 5.7 }
+    ],
+    "children": {
+      "ANIM_Sweep": {
+        "parts": [
+          { "p": "box", "w": 1.5, "h": 0.34, "d": 0.10, "cell": "gunmetal", "y": 5.0, "bevel": 0.01 },
+          { "p": "box", "w": 0.10, "h": 0.34, "d": 1.5, "cell": "gunmetal", "y": 5.4, "bevel": 0.01 }
+        ]
+      },
+      "GLOW_Beacon": {
+        "parts": [
+          { "p": "plate", "w": 0.26, "d": 0.26, "cell": "e_alert", "y": 6.42, "t": 0.05 }
+        ]
+      }
+    }
+  },
+
+  "garrison_magazine": {
+    "//": "Ordnance sorted, labelled, never issued. The Wardens were always going to win.",
+    "budget": 700,
+    "parts": [
+      { "p": "box", "w": 6.0, "h": 1.4, "d": 4.6, "cell": "dry_earth", "bevel": 0.06 },
+      { "p": "wedge", "w": 4.2, "h": 1.9, "d": 3.2, "cell": "weathered_stone", "inset": 0.22 },
+      { "p": "box", "w": 5.2, "h": 2.2, "d": 0.4, "cell": "granite", "z": -2.6, "bevel": 0.03 },
+      { "p": "box", "w": 1.4, "h": 1.5, "d": 0.18, "cell": "signal_red", "y": 0.05, "z": -1.7, "bevel": 0.02 }
+    ]
+  }
+}
